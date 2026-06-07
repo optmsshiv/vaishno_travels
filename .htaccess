@@ -21,16 +21,16 @@ ServerSignature Off
 
   # ── COMING SOON MODE ────────────────────────────────────
   # When site is under construction, redirect all traffic to
-  # coming-soon.html EXCEPT the coming-soon page itself,
+  # index.html EXCEPT the index.html page itself,
   # assets (css/js/images), and any admin/cPanel paths.
   #
   # TO DISABLE: comment out the 4 lines below (add # at start)
   # TO ENABLE:  uncomment the 4 lines below (remove #)
   #
-   RewriteCond %{REQUEST_URI} !^/coming-soon\.html$ [NC]
+   RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
    RewriteCond %{REQUEST_URI} !^/assets/ [NC]
    RewriteCond %{REQUEST_URI} !^/cpanel [NC]
-   RewriteRule ^ /coming-soon.html [L,R=302]
+   RewriteRule ^ /index.html [L,R=302]
 
   # ── Clean URLs (remove .html extension) ─────────────────
   # Lets you link to /about instead of /about.html
@@ -132,4 +132,4 @@ ErrorDocument 500 /pages/404.html
 </FilesMatch>
 
 # ── Default index file ────────────────────────────────────
-DirectoryIndex index.html coming-soon.html
+DirectoryIndex index.html
