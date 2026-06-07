@@ -11,35 +11,31 @@ ServerSignature Off
   RewriteEngine On
   RewriteBase /
 
-  # ── Force HTTPS ─────────────────────────────────────────
+  # ── STEP 1: Force HTTPS (ALWAYS runs first) ─────────────
   RewriteCond %{HTTPS} off
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # ── Force www (remove www lines below if you prefer non-www)
+  # ── STEP 2: Force www (optional, uncomment to enable) ────
   # RewriteCond %{HTTP_HOST} !^www\. [NC]
   # RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # ── COMING SOON MODE ────────────────────────────────────
-  # When site is under construction, redirect all traffic to
-  # index.html EXCEPT the index.html page itself,
-  # assets (css/js/images), and any admin/cPanel paths.
+  # ── STEP 3: COMING SOON MODE ────────────────────────────
+  # Runs AFTER HTTPS redirect so SSL works correctly.
+  # TO DISABLE when site is ready: add # to the 4 lines below
+  # TO ENABLE: remove # from the 4 lines below
   #
-  # TO DISABLE: comment out the 4 lines below (add # at start)
-  # TO ENABLE:  uncomment the 4 lines below (remove #)
-  #
-   RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
-   RewriteCond %{REQUEST_URI} !^/assets/ [NC]
-   RewriteCond %{REQUEST_URI} !^/cpanel [NC]
-   RewriteRule ^ /index.html [L,R=302]
+  RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
+  RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+  RewriteCond %{REQUEST_URI} !^/cpanel [NC]
+  RewriteRule ^ /index.html [L,R=302]
 
-  # ── Clean URLs (remove .html extension) ─────────────────
-  # Lets you link to /about instead of /about.html
+  # ── STEP 4: Clean URLs (remove .html extension) ─────────
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
-  # ── Remove trailing slash ────────────────────────────────
+  # ── STEP 5: Remove trailing slash ───────────────────────
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)/$ /$1 [L,R=301]
 
@@ -64,22 +60,14 @@ ErrorDocument 500 /pages/404.html
 # ── Browser Caching ───────────────────────────────────────
 <IfModule mod_expires.c>
   ExpiresActive On
-
-  # HTML — short cache (content changes)
   ExpiresByType text/html                 "access plus 1 hour"
-
-  # CSS & JS — medium cache
   ExpiresByType text/css                  "access plus 1 month"
   ExpiresByType application/javascript    "access plus 1 month"
-
-  # Images — long cache
   ExpiresByType image/jpeg                "access plus 6 months"
   ExpiresByType image/png                 "access plus 6 months"
   ExpiresByType image/webp                "access plus 6 months"
   ExpiresByType image/svg+xml             "access plus 6 months"
   ExpiresByType image/x-icon              "access plus 1 year"
-
-  # Fonts — very long cache
   ExpiresByType application/font-woff     "access plus 1 year"
   ExpiresByType application/font-woff2    "access plus 1 year"
 </IfModule>
@@ -96,30 +84,20 @@ ErrorDocument 500 /pages/404.html
 
 # ── Security Headers ──────────────────────────────────────
 <IfModule mod_headers.c>
-  # Prevent clickjacking
   Header always set X-Frame-Options "SAMEORIGIN"
-
-  # Stop MIME type sniffing
   Header always set X-Content-Type-Options "nosniff"
-
-  # XSS protection
   Header always set X-XSS-Protection "1; mode=block"
-
-  # Referrer policy
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-
-  # Remove server version info
   Header unset Server
   Header always unset X-Powered-By
 </IfModule>
 
-# ── Block Bad Bots & Hotlinking ───────────────────────────
+# ── Block direct access to hidden files ───────────────────
 <IfModule mod_rewrite.c>
-  # Block direct access to hidden files
   RewriteRule ^\.htaccess$ - [F,L]
   RewriteRule ^\.env$       - [F,L]
 
-  # Block hotlinking of images (replace yourdomain.com below)
+  # Block image hotlinking (uncomment to activate)
   # RewriteCond %{HTTP_REFERER} !^$
   # RewriteCond %{HTTP_REFERER} !^https://(www\.)?shreevaishnotravels\.in [NC]
   # RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,NC,L]
