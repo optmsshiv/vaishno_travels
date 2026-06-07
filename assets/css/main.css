@@ -1,0 +1,18 @@
+/* ============================================================
+   MAIN CSS — Master Import File
+   Include only THIS file in every HTML page:
+   <link rel="stylesheet" href="../assets/css/main.css">
+   (adjust path depth for root: ./assets/css/main.css)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+@import 'variables.css';
+@import 'reset.css';
+@import 'animations.css';
+@import 'navbar.css';
+@import 'footer.css';
+@import 'hero.css';
+@import 'cards.css';
+@import 'forms.css';
+@import 'utilities.css';

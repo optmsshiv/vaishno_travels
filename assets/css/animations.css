@@ -1,0 +1,56 @@
+/* ============================================================
+   ANIMATIONS & KEYFRAMES
+   ============================================================ */
+
+/* ── Keyframes ── */
+@keyframes omGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(245,200,66,0.4); }
+  50%       { text-shadow: 0 0 25px rgba(245,200,66,0.9), 0 0 50px rgba(245,200,66,0.3); }
+}
+
+@keyframes rotateMandala {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Scroll Reveal (applied via JS) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.2s; }
+.reveal--delay-3 { transition-delay: 0.3s; }
+.reveal--delay-4 { transition-delay: 0.4s; }
+
+/* ── Pulse animation for CTA buttons ── */
+.pulse {
+  animation: pulse 2.5s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,104,26,0.4); }
+  50%       { box-shadow: 0 0 0 10px rgba(232,104,26,0); }
+}
