@@ -21,13 +21,14 @@ ServerSignature Off
 
   # ── STEP 3: COMING SOON MODE ────────────────────────────
   # Runs AFTER HTTPS redirect so SSL works correctly.
-  # TO DISABLE when site is ready: add # to the 4 lines below
-  # TO ENABLE: remove # from the 4 lines below
+  # TO DISABLE when site is ready: add # to the lines below
+  # TO ENABLE: remove # from the lines below
   #
-  RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
-  RewriteCond %{REQUEST_URI} !^/assets/ [NC]
-  RewriteCond %{REQUEST_URI} !^/cpanel [NC]
-  RewriteRule ^ /index.html [L,R=302]
+  # RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
+  # RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+  # RewriteCond %{REQUEST_URI} !^/pages/ [NC]
+  # RewriteCond %{REQUEST_URI} !^/cpanel [NC]
+  # RewriteRule ^ /index.html [L,R=302]
 
   # ── STEP 4: Clean URLs (remove .html extension) ─────────
   RewriteCond %{REQUEST_FILENAME} !-d
