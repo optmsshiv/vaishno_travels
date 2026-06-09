@@ -479,60 +479,6 @@
   <!-- PACKAGES DATA + DYNAMIC LOADER -->
   <script src="../assets/js/packages-data.js"></script>
   <script>
-    /* ── Inject Patnitop entry after packages-data.js loads ── */
-    if (typeof PACKAGES !== 'undefined' && !PACKAGES['patnitop']) {
-      PACKAGES['patnitop'] = {
-        eyebrow: '🏔️  Patnitop · Nathatop · J&K',
-        titleMain: 'Patnitop',
-        titleSpan: '& Nathatop',
-        subtitle: 'Mini Kashmir — 100 km from Katra',
-        breadcrumb: 'Patnitop & Nathatop Tour',
-        heroImage: '../assets/images/destinations/patnitop.jpg',
-        heroGradient: 'linear-gradient(160deg,#051A0A 0%,#1A4A2A 60%,#0A2A10 100%)',
-        duration: '1 Day Trip',
-        groupSize: 'Min 1 Person',
-        transport: 'AC Car',
-        meals: 'Not Incl.',
-        overview: 'Escape to Patnitop and Nathatop — the breathtaking hill stations of Jammu & Kashmir that give Kashmir Valley a run for its beauty. Sitting at 2,024 m above sea level, Patnitop is draped in dense pine forests, rolling meadows and snow-capped peaks, earning it the nickname "Mini Kashmir". This comfortable one-day AC car service departs from Katra, covers the stunning Nathatop viewpoint, and includes the ancient Sudh Mahadev Temple — a sacred Shiva shrine surrounded by cedar forests. Same-day return to Katra.',
-        itinerary: [
-          {
-            day: 'Morning — 6:00 AM',
-            title: 'Departure from Katra',
-            desc: 'Early morning pickup from your hotel in Katra. Comfortable AC car departs for Patnitop via the scenic Udhampur–Patnitop highway. Enjoy the gradual climb through pine-lined curves as the valley unfolds below.'
-          },
-          {
-            day: 'Mid Morning — 9:00 AM',
-            title: 'Sudh Mahadev & Mantalai',
-            desc: 'En route stop at Sudh Mahadev Temple — an ancient Shiva shrine in a serene cedar forest setting, associated with the legend of Banasura. Short walk through forested trail to the Mantalai stream nearby.'
-          },
-          {
-            day: 'Afternoon — 12:00 PM',
-            title: 'Patnitop Plateau & Nathatop',
-            desc: 'Arrive at Patnitop plateau. Walk the lush meadows with panoramic Himalayan views. Then drive up to Nathatop (2,729 m) — the crown jewel viewpoint with sweeping vistas of snow peaks, Chenab valley, and dense forests. Photography time and light refreshments.'
-          },
-          {
-            day: 'Evening — 4:00 PM',
-            title: 'Return to Katra',
-            desc: 'Begin the return journey to Katra. Scenic evening drive through the Shivalik foothills. Drop at your hotel in Katra by approximately 7:00 PM — refreshed and carrying the cool mountain air home.'
-          }
-        ],
-        included: [
-          'AC car — Katra to Patnitop & Nathatop and back',
-          'Experienced local driver with mountain route knowledge',
-          'Sudh Mahadev & Mantalai en-route stop',
-          'All toll charges and parking fees',
-          'Same-day return to Katra'
-        ],
-        excluded: [
-          'Meals & refreshments (available at local dhabas)',
-          'Personal expenses & entry fees if any',
-          'Hotel / accommodation (day trip only)',
-          'Travel insurance'
-        ]
-      };
-    }
-  </script>
-  <script>
     (function () {
 
       /* ── Read ?destination= from URL ── */
