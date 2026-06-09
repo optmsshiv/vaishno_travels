@@ -1,157 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kashi Varanasi Package — 5 days Ganga Aarti, Kashi Vishwanath darshan and more with Shree Vaishnо Travels." />
-  <title>Kashi Varanasi Package | Shree Vaishnо Travels</title>
+  <meta name="description" id="meta-desc" content="Yatra Package | Shree Vaishnо Travels" />
+  <title id="page-title">Yatra Package | Shree Vaishnо Travels</title>
   <link rel="stylesheet" href="../assets/css/main.css" />
   <style>
-    .include-list { display:flex; flex-direction:column; gap:10px; }
-    .include-item { display:flex; align-items:flex-start; gap:10px; font-size:var(--fs-base); color:var(--color-text-secondary); }
-    .include-item .icon { width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0; margin-top:2px; }
-    .include-item .icon--yes { background:#E8F5E9; color:#2E7D32; }
-    .include-item .icon--no  { background:#FFEBEE; color:#C62828; }
-    .sticky-book { position:sticky; top: calc(var(--nav-height) + 20px); }
+    .include-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .include-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--fs-base);
+      color: var(--color-text-secondary);
+    }
+
+    .include-item .icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .include-item .icon--yes {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .include-item .icon--no {
+      background: #FFEBEE;
+      color: #C62828;
+    }
+
+    /* ── Hero image fix — no stretch ── */
+    .hero--inner {
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    .sticky-book {
+      position: sticky;
+      top: calc(var(--nav-height) + 20px);
+    }
+
+    /* ============================================================
+       MOBILE ONLY — max-width 768px
+       Desktop layout untouched above this point
+       ============================================================ */
+    @media (max-width: 768px) {
+
+      /* 1. Kill the 2-column grid — stack sidebar BELOW content */
+      .pkg-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+      }
+
+      /* 2. Sidebar loses sticky, sits after content */
+      .sticky-book {
+        position: static !important;
+        width: 100% !important;
+      }
+
+      /* 3. Overview stats: 4-col → 2×2 */
+      .pkg-stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      /* 4. Includes/Excludes: side-by-side → stacked */
+      .pkg-includes-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      /* 5. Card padding tighter */
+      .pkg-card-block {
+        padding: 16px !important;
+      }
+
+      /* 6. Section padding tighter */
+      .section {
+        padding: 28px 16px !important;
+      }
+
+      /* 7. Push body up so fixed bar doesn't hide content */
+      body {
+        padding-bottom: 72px;
+      }
+    }
+
+    /* ── Fixed bottom booking bar — mobile only ── */
+    .pkg-bottom-bar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .pkg-bottom-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 990;
+        background: var(--color-maroon-dark);
+        border-top: 2px solid var(--color-gold);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+        padding: 10px 16px;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .pkg-bottom-bar__info {
+        flex: 1;
+      }
+
+      .pkg-bottom-bar__label {
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(253, 246, 227, 0.45);
+        margin-bottom: 3px;
+      }
+
+      .pkg-bottom-bar__price {
+        font-family: var(--font-heading);
+        font-size: 15px;
+        color: var(--color-gold-bright);
+        line-height: 1;
+      }
+
+      .pkg-bottom-bar__actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .pkg-bottom-bar__call {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-sm);
+        background: rgba(212, 160, 23, 0.12);
+        border: 1px solid var(--color-gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+
+      .pkg-bottom-bar__book {
+        height: 44px;
+        padding: 0 18px;
+        background: linear-gradient(135deg, var(--color-saffron), var(--color-saffron-dark));
+        border: 1px solid var(--color-gold);
+        border-radius: var(--radius-sm);
+        font-family: var(--font-heading);
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        box-shadow: 0 4px 14px rgba(232, 104, 26, 0.4);
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="../index.html" class="navbar__logo">
-      <div class="navbar__om">ॐ</div>
-      <div>
-        <div class="navbar__brand-name">Shree Vaishnо Travels</div>
-        <div class="navbar__brand-tagline">Sacred Yatra Specialists</div>
-      </div>
-    </a>
-    <div class="navbar__hamburger"><span></span><span></span><span></span></div>
-    <ul class="navbar__links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="destinations.html">Destinations</a></li>
-      <li><a href="packages.html" class="active">Packages</a></li>
-      <li><a href="char-dham.html">Char Dham</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="navbar__cta">Book Yatra 🙏</a></li>
-    </ul>
-  </nav>
+  <div id="navbar-placeholder"></div>
 
   <!-- HERO INNER -->
   <section class="hero hero--inner">
     <div class="hero__glow"></div>
     <div class="hero__content">
-      <div class="hero__eyebrow">📍 Uttar Pradesh · North India</div>
-      <h1 class="hero__title">Kashi <span>Varanasi</span></h1>
-      <p class="hero__subtitle">5 Days · 4 Nights · Ganga Aarti · Kashi Vishwanath</p>
+      <div class="hero__eyebrow" id="hero-eyebrow">📍 Loading...</div>
+      <h1 class="hero__title"><span id="hero-title-main">Loading</span> <span id="hero-title-span"></span></h1>
+      <p class="hero__subtitle" id="hero-subtitle">Loading...</p>
       <div class="breadcrumb">
         <a href="../index.html">Home</a><span>›</span>
         <a href="packages.html">Packages</a><span>›</span>
-        <span>Kashi Varanasi</span>
+        <span id="breadcrumb-name">Loading</span>
       </div>
     </div>
   </section>
 
   <!-- CONTENT + SIDEBAR -->
   <section class="section" style="background:var(--color-bg-section-alt);">
-    <div class="container" style="display:grid; grid-template-columns: 1fr 340px; gap:40px; align-items:start;">
+    <div class="container pkg-layout"
+      style="display:grid; grid-template-columns: 1fr 340px; gap:40px; align-items:start;">
 
       <!-- Main Content -->
       <div>
 
         <!-- Overview -->
-        <div style="background:white; border:1px solid var(--color-border-gold); border-radius:var(--radius-md); padding:var(--space-md); margin-bottom:var(--space-md); box-shadow:var(--shadow-card);" class="reveal">
-          <h3 style="font-family:var(--font-heading); font-size:18px; color:var(--color-maroon); margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--color-border-gold);">Package Overview</h3>
-          <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; margin-bottom:20px;">
-            <div style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">
+        <div class="pkg-card-block reveal"
+          style="background:white; border:1px solid var(--color-border-gold); border-radius:var(--radius-md); padding:var(--space-md); margin-bottom:var(--space-md); box-shadow:var(--shadow-card);">
+          <h3
+            style="font-family:var(--font-heading); font-size:18px; color:var(--color-maroon); margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--color-border-gold);">
+            Package Overview</h3>
+          <div class="pkg-stats-grid" id="pkg-stats"
+            style="display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; margin-bottom:20px;">
+            <div
+              style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">
               <div style="font-size:24px; margin-bottom:4px;">📅</div>
               <div style="font-family:var(--font-heading); font-size:14px; color:var(--color-maroon);">5 Days</div>
               <div style="font-size:11px; color:var(--color-text-muted); letter-spacing:1px;">DURATION</div>
             </div>
-            <div style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">
+            <div
+              style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">
               <div style="font-size:24px; margin-bottom:4px;">👥</div>
               <div style="font-family:var(--font-heading); font-size:14px; color:var(--color-maroon);">Min 2</div>
               <div style="font-size:11px; color:var(--color-text-muted); letter-spacing:1px;">PERSONS</div>
             </div>
-            <div style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">
+            <div
+              style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">
               <div style="font-size:24px; margin-bottom:4px;">🚌</div>
               <div style="font-family:var(--font-heading); font-size:14px; color:var(--color-maroon);">AC Bus</div>
               <div style="font-size:11px; color:var(--color-text-muted); letter-spacing:1px;">TRANSPORT</div>
             </div>
-            <div style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">
+            <div
+              style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">
               <div style="font-size:24px; margin-bottom:4px;">🍽️</div>
               <div style="font-family:var(--font-heading); font-size:14px; color:var(--color-maroon);">Meals</div>
               <div style="font-size:11px; color:var(--color-text-muted); letter-spacing:1px;">INCLUDED</div>
             </div>
           </div>
-          <p style="font-size:var(--fs-base); color:var(--color-text-secondary); line-height:1.8;">
-            Experience the eternal city of Lord Shiva in all its divine glory. This 5-day package covers the most sacred ghats, the magnificent Kashi Vishwanath Temple, and the unforgettable evening Ganga Aarti — a spiritual experience that stays with you for life.
+          <p id="pkg-overview" style="font-size:var(--fs-base); color:var(--color-text-secondary); line-height:1.8;">
+            Experience the divine blessings of Mata Vaishno Devi on Trikuta Hills — the most visited Hindu shrine in
+            India. This 5-day package covers the sacred trekking yatra to the holy cave, comfortable stay in Katra,
+            special puja arrangements, and a bonus visit to the Golden Temple in Amritsar — a complete spiritual journey
+            from Patna.
           </p>
         </div>
 
         <!-- Itinerary -->
-        <div style="background:white; border:1px solid var(--color-border-gold); border-radius:var(--radius-md); padding:var(--space-md); margin-bottom:var(--space-md); box-shadow:var(--shadow-card);" class="reveal">
-          <h3 style="font-family:var(--font-heading); font-size:18px; color:var(--color-maroon); margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--color-border-gold);">Day-by-Day Itinerary</h3>
-          <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="pkg-card-block reveal"
+          style="background:white; border:1px solid var(--color-border-gold); border-radius:var(--radius-md); padding:var(--space-md); margin-bottom:var(--space-md); box-shadow:var(--shadow-card);">
+          <h3
+            style="font-family:var(--font-heading); font-size:18px; color:var(--color-maroon); margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--color-border-gold);">
+            Day-by-Day Itinerary</h3>
+          <div id="pkg-itinerary" style="display:flex; flex-direction:column; gap:20px;">
             <div style="border-left:2px solid var(--color-gold); padding-left:20px; position:relative;">
-              <div style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-gold); border-radius:50%;"></div>
-              <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">Day 1</div>
-              <div style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">Arrival in Varanasi</div>
-              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Pick-up from Varanasi station / airport. Hotel check-in. Evening: Dashashwamedh Ghat Ganga Aarti — a divine welcome to Kashi. Dinner and overnight stay.</p>
+              <div
+                style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-gold); border-radius:50%;">
+              </div>
+              <div
+                style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">
+                Day 1</div>
+              <div
+                style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">
+                Arrival in Jammu</div>
+              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Pick-up from Jammu railway
+                station / airport. Transfer to Katra base camp (45 km). Hotel check-in. Evening darshan at Bhumika Devi
+                Temple. Briefing on yatra route and registration. Dinner and rest.</p>
             </div>
             <div style="border-left:2px solid var(--color-gold); padding-left:20px; position:relative;">
-              <div style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-gold); border-radius:50%;"></div>
-              <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">Day 2</div>
-              <div style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">Kashi Vishwanath Temple</div>
-              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Early morning: VIP darshan at Shri Kashi Vishwanath Jyotirlinga. Rudrabhishek puja. Visit Annapurna Devi temple and Kaal Bhairav temple. Boat ride at sunrise on the Ganga.</p>
+              <div
+                style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-gold); border-radius:50%;">
+              </div>
+              <div
+                style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">
+                Day 2</div>
+              <div
+                style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">
+                Vaishno Devi Darshan</div>
+              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Early 3 AM departure for
+                the holy trek (14 km via Tarakote Marg). Pony / palki available. Darshan at the holy cave shrine of Mata
+                Vaishno Devi — Mahakali, Mahasaraswati and Mahalakshmi. Return trek to Katra. Rest and celebratory
+                dinner.</p>
             </div>
             <div style="border-left:2px solid var(--color-gold); padding-left:20px; position:relative;">
-              <div style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-gold); border-radius:50%;"></div>
-              <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">Day 3</div>
-              <div style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">Sarnath Excursion</div>
-              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Day trip to Sarnath — where Lord Buddha delivered his first sermon. Visit Dhamek Stupa and Sarnath Museum. Evening: Manikarnika Ghat visit (the eternal cremation ground).</p>
+              <div
+                style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-gold); border-radius:50%;">
+              </div>
+              <div
+                style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">
+                Day 3</div>
+              <div
+                style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">
+                Bhairavnath &amp; Shiv Khori</div>
+              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Morning visit to
+                Bhairavnath Temple (1 km above the cave — completing yatra tradition). Afternoon excursion to Shiv Khori
+                Cave Temple (70 km), a stunning natural Shiva shrine. Return to Katra. Evening aarti and dinner.</p>
             </div>
             <div style="border-left:2px solid var(--color-gold); padding-left:20px; position:relative;">
-              <div style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-gold); border-radius:50%;"></div>
-              <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">Day 4</div>
-              <div style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">Ghats Walk &amp; Puja</div>
-              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Morning walk along 84 ghats of Varanasi. Panchamrit abhishek puja. Visit Tulsi Manas Mandir and Durga Kund. Free evening for shopping on Vishwanath Lane.</p>
+              <div
+                style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-gold); border-radius:50%;">
+              </div>
+              <div
+                style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">
+                Day 4</div>
+              <div
+                style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">
+                Golden Temple, Amritsar</div>
+              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Drive to Amritsar (220 km).
+                Visit the magnificent Harmandir Sahib (Golden Temple) — langar, sarovar snan and evening Palki Sahib
+                ceremony. Visit Jallianwala Bagh and Wagah Border. Night stay in Amritsar.</p>
             </div>
-            <div style="border-left:2px solid var(--color-gold); padding-left:20px; position:relative; padding-bottom:0;">
-              <div style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-saffron); border-radius:50%;"></div>
-              <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">Day 5</div>
-              <div style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">Departure with Blessings</div>
-              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Final Ganga snan and puja. Prasad distribution. Drop to station / airport. Carry the blessings of Kashi home.</p>
+            <div
+              style="border-left:2px solid var(--color-gold); padding-left:20px; position:relative; padding-bottom:0;">
+              <div
+                style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:var(--color-saffron); border-radius:50%;">
+              </div>
+              <div
+                style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">
+                Day 5</div>
+              <div
+                style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">
+                Departure with Mata's Blessings</div>
+              <p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">Morning visit to Durgiana
+                Temple in Amritsar. Final prasad distribution. Transfer to Amritsar airport / railway station for
+                departure back to Patna. Carry Mata Rani's blessings home.</p>
             </div>
           </div>
         </div>
 
         <!-- Includes / Excludes -->
-        <div style="background:white; border:1px solid var(--color-border-gold); border-radius:var(--radius-md); padding:var(--space-md); box-shadow:var(--shadow-card);" class="reveal">
-          <h3 style="font-family:var(--font-heading); font-size:18px; color:var(--color-maroon); margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--color-border-gold);">What's Included</h3>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div class="pkg-card-block reveal"
+          style="background:white; border:1px solid var(--color-border-gold); border-radius:var(--radius-md); padding:var(--space-md); box-shadow:var(--shadow-card);">
+          <h3
+            style="font-family:var(--font-heading); font-size:18px; color:var(--color-maroon); margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--color-border-gold);">
+            What's Included</h3>
+          <div id="pkg-includes" class="pkg-includes-grid"
+            style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
             <div>
-              <div style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:12px;">✓ Included</div>
+              <div
+                style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:12px;">
+                ✓ Included</div>
               <div class="include-list">
-                <div class="include-item"><div class="icon icon--yes">✓</div> 4 nights 3-star hotel accommodation</div>
-                <div class="include-item"><div class="icon icon--yes">✓</div> Daily breakfast and dinner (vegetarian)</div>
-                <div class="include-item"><div class="icon icon--yes">✓</div> AC transport throughout</div>
-                <div class="include-item"><div class="icon icon--yes">✓</div> VIP Kashi Vishwanath darshan pass</div>
-                <div class="include-item"><div class="icon icon--yes">✓</div> Ganga Aarti front-row seating</div>
-                <div class="include-item"><div class="icon icon--yes">✓</div> Experienced pandit ji for all pujas</div>
-                <div class="include-item"><div class="icon icon--yes">✓</div> Guided Ganga boat ride</div>
-                <div class="include-item"><div class="icon icon--yes">✓</div> Sarnath excursion with guide</div>
+                <div class="include-item">
+                  <div class="icon icon--yes">✓</div> AC transport throughout
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--yes">✓</div> Yatra registration &amp; puja arrangement
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--yes">✓</div> Pony / palki booking assistance
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--yes">✓</div> Experienced pandit ji for all pujas
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--yes">✓</div> Golden Temple &amp; Shiv Khori visit
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--yes">✓</div> Bhairavnath Temple darshan
+                </div>
               </div>
             </div>
             <div>
-              <div style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:12px;">✗ Not Included</div>
+              <div
+                style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:12px;">
+                ✗ Not Included</div>
               <div class="include-list">
-                <div class="include-item"><div class="icon icon--no">✗</div> Train / flight tickets to Varanasi</div>
-                <div class="include-item"><div class="icon icon--no">✗</div> Lunch</div>
-                <div class="include-item"><div class="icon icon--no">✗</div> Personal expenses &amp; shopping</div>
-                <div class="include-item"><div class="icon icon--no">✗</div> Travel insurance</div>
-                <div class="include-item"><div class="icon icon--no">✗</div> Temple donation / offerings</div>
+                <div class="include-item">
+                  <div class="icon icon--no">✗</div> 4 nights hotel (3-star, Katra &amp; Amritsar)
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--no">✗</div> Train / flight tickets to Jammu
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--no">✗</div> Daily vegetarian breakfast &amp; dinner
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--no">✗</div> Lunch
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--no">✗</div> Personal expenses &amp; shopping
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--no">✗</div> Travel insurance
+                </div>
+                <div class="include-item">
+                  <div class="icon icon--no">✗</div> Temple donation / offerings
+                </div>
               </div>
             </div>
           </div>
@@ -160,30 +400,54 @@
       </div><!-- /main content -->
 
       <!-- Sticky Sidebar -->
-      <div class="sticky-book reveal reveal--delay-1">
-        <div style="background:white; border:2px solid var(--color-gold); border-radius:var(--radius-md); padding:var(--space-md); box-shadow:var(--shadow-hover);">
+      <div class="sticky-book reveal reveal--delay-1" id="pkg-sidebar">
+        <div
+          style="background:white; border:2px solid var(--color-gold); border-radius:var(--radius-md); padding:var(--space-md); box-shadow:var(--shadow-hover);">
           <div style="text-align:center; margin-bottom:20px;">
-            <div style="font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:6px;">Starting From</div>
-            <div style="font-family:var(--font-heading); font-size:38px; color:var(--color-maroon); line-height:1;">₹12,999</div>
-            <div style="font-size:13px; color:var(--color-text-muted);">per person · 2 sharing</div>
+            <div
+              style="font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:10px;">
+              Price</div>
+            <div
+              style="font-family:var(--font-body); font-size:22px; color:var(--color-saffron); font-weight:600; display:flex; align-items:center; justify-content:center; gap:8px;">
+              📞 Price on Call</div>
+            <div style="font-size:13px; color:var(--color-text-muted); margin-top:6px;">Call us for best rates &amp;
+              group discounts</div>
           </div>
 
-          <div style="background:var(--color-warm-white); border-radius:var(--radius-sm); padding:14px; margin-bottom:16px; font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
-            📅 &nbsp; <strong>Next Batch:</strong> 15 June 2025<br>
-            👥 &nbsp; <strong>Seats Left:</strong> 8 / 20<br>
-            🚌 &nbsp; <strong>Departure:</strong> Patna Junction
+          <div
+            style="background:var(--color-warm-white); border-radius:var(--radius-sm); padding:14px; margin-bottom:16px; font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
+            📅 &nbsp; <strong>Next Batch:</strong> Confirm on call<br>
+            👥 &nbsp; <strong>Seats Available:</strong> On  call<br>
+            🚌 &nbsp; <strong>Departure:</strong> Near Railway Station
           </div>
 
-          <a href="contact.html" class="btn btn--primary" style="width:100%; text-align:center; display:block; margin-bottom:10px; font-size:13px;">🙏 Book This Package</a>
-          <a href="tel:+919876543210" class="btn btn--outline" style="width:100%; text-align:center; display:block; font-size:13px;">📞 Call to Enquire</a>
+          <a href="contact.html" class="btn btn--primary"
+            style="width:100%; text-align:center; display:block; margin-bottom:10px; font-size:13px;">🙏 Book This
+            Package</a>
+          <a href="tel:+919876543210" class="btn btn--outline"
+            style="width:100%; text-align:center; display:block; font-size:13px;">📞 Call to Enquire</a>
 
           <div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--color-border-gold);">
-            <div style="font-size:12px; color:var(--color-text-muted); text-align:center; margin-bottom:10px; letter-spacing:1px; text-transform:uppercase;">Why Book With Us</div>
+            <div
+              style="font-size:12px; color:var(--color-text-muted); text-align:center; margin-bottom:10px; letter-spacing:1px; text-transform:uppercase;">
+              Why Book With Us</div>
             <div style="display:flex; flex-direction:column; gap:6px;">
-              <div style="font-size:13px; color:var(--color-text-secondary); display:flex; gap:6px; align-items:center;"><span style="color:var(--color-saffron);">✦</span> Free cancellation up to 7 days</div>
-              <div style="font-size:13px; color:var(--color-text-secondary); display:flex; gap:6px; align-items:center;"><span style="color:var(--color-saffron);">✦</span> No hidden charges ever</div>
-              <div style="font-size:13px; color:var(--color-text-secondary); display:flex; gap:6px; align-items:center;"><span style="color:var(--color-saffron);">✦</span> 24/7 support during trip</div>
-              <div style="font-size:13px; color:var(--color-text-secondary); display:flex; gap:6px; align-items:center;"><span style="color:var(--color-saffron);">✦</span> 12 years of trusted service</div>
+              <div
+                style="font-size:13px; color:var(--color-text-secondary); display:flex; gap:6px; align-items:center;">
+                <span style="color:var(--color-saffron);">✦</span> Free cancellation up to 7 days
+              </div>
+              <div
+                style="font-size:13px; color:var(--color-text-secondary); display:flex; gap:6px; align-items:center;">
+                <span style="color:var(--color-saffron);">✦</span> No hidden charges ever
+              </div>
+              <div
+                style="font-size:13px; color:var(--color-text-secondary); display:flex; gap:6px; align-items:center;">
+                <span style="color:var(--color-saffron);">✦</span> 24/7 support during trip
+              </div>
+              <div
+                style="font-size:13px; color:var(--color-text-secondary); display:flex; gap:6px; align-items:center;">
+                <span style="color:var(--color-saffron);">✦</span> 12 years of trusted service
+              </div>
             </div>
           </div>
         </div>
@@ -193,58 +457,143 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__brand-name">Shree Vaishnо Travels</div>
-        <div class="footer__brand-tagline">Sacred Yatra Specialists</div>
-        <p class="footer__desc">For over 12 years, guiding devotees on spiritually enriching pilgrimages with devotion and care.</p>
-        <div class="footer__social">
-          <a href="#" class="footer__social-btn">f</a>
-          <a href="#" class="footer__social-btn">in</a>
-          <a href="#" class="footer__social-btn">yt</a>
-          <a href="https://wa.me/919876543210" class="footer__social-btn">wa</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__col-title">Quick Links</div>
-        <ul class="footer__links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="packages.html">All Packages</a></li>
-          <li><a href="char-dham.html">Char Dham 2025</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Top Destinations</div>
-        <ul class="footer__links">
-          <li><a href="destinations.html">Varanasi Kashi</a></li>
-          <li><a href="destinations.html">Tirupati Balaji</a></li>
-          <li><a href="destinations.html">Kedarnath</a></li>
-          <li><a href="destinations.html">Shirdi Sai Baba</a></li>
-          <li><a href="char-dham.html">Char Dham Yatra</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Contact Us</div>
-        <ul class="footer__links">
-          <li><a href="tel:+919876543210">📞 +91 98765 43210</a></li>
-          <li><a href="mailto:info@shreevaishnotravels.in">📧 info@shreevaishnotravels.in</a></li>
-          <li><a href="#">📍 Patna, Bihar — 800001</a></li>
-          <li><a href="#">⏰ Open Daily: 9 AM – 8 PM</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer__copy">© 2025 <span>Shree Vaishnо Travels</span>. All rights reserved.</div>
-      <div class="footer__dharma">ॐ नमो वेंकटेशाय</div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
-  <script src="../assets/js/navbar.js"></script>
   <script src="../assets/js/animations.js"></script>
   <script src="../assets/js/form.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/navbar-loader.js"></script>
+
+  <!-- MOBILE FIXED BOOKING BAR -->
+  <div class="pkg-bottom-bar">
+    <div class="pkg-bottom-bar__info">
+      <div class="pkg-bottom-bar__label">Price</div>
+      <div class="pkg-bottom-bar__price">📞 Price on Call</div>
+    </div>
+    <div class="pkg-bottom-bar__actions">
+      <a href="tel:+919876543210" class="pkg-bottom-bar__call" aria-label="Call us">📞</a>
+      <a href="contact.html" class="pkg-bottom-bar__book">🙏 Book Now</a>
+    </div>
+  </div>
+
+  <!-- PACKAGES DATA + DYNAMIC LOADER -->
+  <script src="../assets/js/packages-data.js"></script>
+  <script>
+    (function () {
+
+      /* ── Read ?destination= from URL ── */
+      var params = new URLSearchParams(window.location.search);
+      var key = (params.get('destination') || 'jammu').toLowerCase();
+      var pkg = PACKAGES[key];
+
+      /* ── Fallback if key not found ── */
+      if (!pkg) {
+        pkg = PACKAGES['jammu'];
+        console.warn('[package-detail] Unknown destination key:', key, '— falling back to jammu');
+      }
+
+      /* ── Page title & meta ── */
+      document.getElementById('page-title').textContent = pkg.titleMain + ' ' + pkg.titleSpan + ' Package | Shree Vaishnо Travels';
+      document.getElementById('meta-desc').setAttribute('content', pkg.titleMain + ' Yatra Package — ' + pkg.subtitle + ' — Shree Vaishnо Travels');
+
+      /* ── Hero ── */
+      document.getElementById('hero-eyebrow').textContent = pkg.eyebrow;
+      document.getElementById('hero-title-main').textContent = pkg.titleMain;
+      document.getElementById('hero-title-span').textContent = pkg.titleSpan;
+      document.getElementById('hero-subtitle').textContent = pkg.subtitle;
+      document.getElementById('breadcrumb-name').textContent = pkg.breadcrumb;
+
+      /* ── Hero background ── */
+      var hero = document.querySelector('.hero.hero--inner');
+      if (hero) {
+        if (pkg.heroImage) {
+          /* Test if image loads — use photo with dark overlay */
+          var img = new Image();
+          img.onload = function () {
+            /* Use background shorthand carefully so size/position aren't reset */
+            hero.style.backgroundImage = 'linear-gradient(160deg, rgba(26,5,5,0.2) 0%, rgba(74,10,10,0.5) 50%, rgba(123,24,24,0.2) 100%), url(' + pkg.heroImage + ')';
+            hero.style.backgroundSize = 'cover, cover';
+            hero.style.backgroundPosition = 'center, center';
+            hero.style.backgroundRepeat = 'no-repeat, no-repeat';
+          };
+          img.onerror = function () {
+            /* Image missing — fall back to pure gradient */
+            hero.style.background = pkg.heroGradient;
+          };
+          img.src = pkg.heroImage;
+        } else {
+          hero.style.background = pkg.heroGradient;
+        }
+      }
+
+      /* ── Stats grid ──
+      var statsEl = document.getElementById('pkg-stats');
+      if (statsEl) {
+        statsEl.innerHTML =
+          statBox('📅', pkg.duration, 'Duration') +
+          statBox('👥', pkg.groupSize, 'Group Size') +
+          statBox('🚌', pkg.transport, 'Transport') +
+          statBox('🍽️', pkg.meals, 'Meals');
+      } */
+
+      /* ── Stats grid ── */
+      var statsEl = document.getElementById('pkg-stats');
+      if (statsEl) {
+        statsEl.innerHTML =
+          statBox('📅', pkg.duration, 'Duration') +
+          statBox('👥', pkg.groupSize, 'Group Size');
+      }
+
+      /* ── Overview ── */
+      var overviewEl = document.getElementById('pkg-overview');
+      if (overviewEl) overviewEl.textContent = pkg.overview;
+
+      /* ── Itinerary ── */
+      var itinEl = document.getElementById('pkg-itinerary');
+      if (itinEl) {
+        itinEl.innerHTML = pkg.itinerary.map(function (d, i) {
+          var isLast = i === pkg.itinerary.length - 1;
+          return '<div style="border-left:2px solid var(--color-gold); padding-left:20px; position:relative;' + (isLast ? '' : '') + '">'
+            + '<div style="position:absolute; left:-7px; top:4px; width:12px; height:12px; background:' + (isLast ? 'var(--color-saffron)' : 'var(--color-gold)') + '; border-radius:50%;"></div>'
+            + '<div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--color-saffron); margin-bottom:4px;">' + d.day + '</div>'
+            + '<div style="font-family:var(--font-heading); font-size:15px; color:var(--color-maroon); margin-bottom:6px;">' + d.title + '</div>'
+            + '<p style="font-size:14px; color:var(--color-text-secondary); line-height:1.7;">' + d.desc + '</p>'
+            + '</div>';
+        }).join('');
+      }
+
+      /* ── Includes / Excludes ── */
+      var incEl = document.getElementById('pkg-includes');
+      if (incEl) {
+        incEl.innerHTML =
+          '<div>'
+          + '<div style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:12px;">✓ Included</div>'
+          + '<div class="include-list">' + pkg.included.map(function (i) { return includeItem(i, true); }).join('') + '</div>'
+          + '</div>'
+          + '<div>'
+          + '<div style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--color-text-muted); margin-bottom:12px;">✗ Not Included</div>'
+          + '<div class="include-list">' + pkg.excluded.map(function (i) { return includeItem(i, false); }).join('') + '</div>'
+          + '</div>';
+      }
+
+      /* ── Helper functions ── */
+      function statBox(icon, value, label) {
+        return '<div style="text-align:center; padding:12px; background:var(--color-warm-white); border-radius:var(--radius-sm);">'
+          + '<div style="font-size:24px; margin-bottom:4px;">' + icon + '</div>'
+          + '<div style="font-family:var(--font-heading); font-size:14px; color:var(--color-maroon);">' + value + '</div>'
+          + '<div style="font-size:11px; color:var(--color-text-muted); letter-spacing:1px;">' + label.toUpperCase() + '</div>'
+          + '</div>';
+      }
+
+      function includeItem(text, yes) {
+        return '<div class="include-item">'
+          + '<div class="icon ' + (yes ? 'icon--yes' : 'icon--no') + '">' + (yes ? '✓' : '✗') + '</div> ' + text
+          + '</div>';
+      }
+
+    })();
+  </script>
+
 </body>
+
 </html>

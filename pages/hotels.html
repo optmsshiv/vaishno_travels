@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Shree Vaishnо Travels arranges comfortable hotel stays near all major pilgrimage destinations across India. Contact us for hotel bookings." />
+  <title>Hotel Arrangements | Shree Vaishnо Travels</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <style>
+    .hotels-stats {
+      background: linear-gradient(135deg, var(--color-maroon), var(--color-maroon-dark));
+      padding: 20px var(--space-lg);
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      border-bottom: 2px solid var(--color-gold);
+      flex-wrap: wrap;
+    }
+
+    .hotels-stat {
+      text-align: center;
+    }
+
+    .hotels-stat__num {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      color: var(--color-gold-bright);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hotels-stat__label {
+      font-size: 11px;
+      color: rgba(253, 246, 227, 0.55);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .why-hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .why-hotel-card {
+      text-align: center;
+      padding: 28px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 160, 23, 0.2);
+      border-radius: var(--radius-md);
+      transition: all 0.3s;
+    }
+
+    .why-hotel-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(212, 160, 23, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .why-hotel-card__icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .why-hotel-card__title {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      color: var(--color-gold-bright);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .why-hotel-card__desc {
+      font-size: 13px;
+      color: rgba(253, 246, 227, 0.6);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .hotels-stats {
+        gap: 24px;
+        padding: 16px;
+      }
+
+      .why-hotel-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .why-hotel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- HERO -->
+  <section class="hero hero--inner">
+    <div class="hero__glow"></div>
+    <div class="hero__content">
+      <div class="hero__eyebrow">🏨 &nbsp; Hotel Arrangements &nbsp; 🏨</div>
+      <h1 class="hero__title">We Arrange Your <span>Perfect Stay</span></h1>
+      <p class="hero__subtitle">Comfortable hotels near every pilgrimage destination — arranged by us, just for you</p>
+      <div class="hero__divider">
+        <div class="hero__divider-line"></div>
+        <div class="hero__divider-icon">✿</div>
+        <div class="hero__divider-line hero__divider-line--right"></div>
+      </div>
+      <div class="hero__buttons">
+        <a href="contact.html" class="btn btn--primary">📞 Enquire for Hotel</a>
+      </div>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span><span>Hotels</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO BAND -->
+  <div class="hotels-stats">
+    <div class="hotels-stat">
+      <div class="hotels-stat__num">40+</div>
+      <div class="hotels-stat__label">Partner Hotels</div>
+    </div>
+    <div class="hotels-stat">
+      <div class="hotels-stat__num">10+</div>
+      <div class="hotels-stat__label">Destinations</div>
+    </div>
+    <div class="hotels-stat">
+      <div class="hotels-stat__num">3–5 ★</div>
+      <div class="hotels-stat__label">Star Range</div>
+    </div>
+    <div class="hotels-stat">
+      <div class="hotels-stat__num">100%</div>
+      <div class="hotels-stat__label">Veg Friendly</div>
+    </div>
+  </div>
+
+  <!-- MAIN INFO SECTION -->
+  <section class="section" style="background: var(--color-bg-section-alt);">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-header__tag">✦ Hotel Arrangements ✦</span>
+        <h2 class="section-header__title">Hotels Arranged by Shree Vaishnо Travels</h2>
+        <div class="section-header__ornament">
+          <div class="ornament__line"></div>
+          <div class="ornament__diamond"></div>
+          <div class="ornament__line"></div>
+        </div>
+      </div>
+
+      <!-- Info Card -->
+      <div class="reveal" style="max-width: 760px; margin: 0 auto 56px; text-align: center;">
+        <div
+          style="background: white; border: 1px solid var(--color-border-gold); border-radius: var(--radius-md); padding: 40px 36px; box-shadow: var(--shadow-card);">
+          <div style="font-size: 56px; margin-bottom: 20px;">🏨</div>
+          <h3
+            style="font-family: var(--font-heading); font-size: 22px; color: var(--color-maroon); margin-bottom: 16px;">
+            We Handle Your Stay, So You Focus on Your Yatra
+          </h3>
+          <p
+            style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 16px;">
+            Shree Vaishnо Travels arranges comfortable, verified hotel stays near all major pilgrimage destinations
+            across India. Whether you need a simple pilgrim lodge or a well-equipped hotel, we find the right option for
+            your group and budget.
+          </p>
+          <p
+            style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 28px;">
+            Simply contact us with your destination, travel dates, group size, and budget — we will take care of the
+            rest.
+          </p>
+          <a href="contact.html" class="btn btn--primary">📞 Contact Us for Hotel Booking</a>
+        </div>
+      </div>
+
+      <!-- Destination Coverage -->
+      <div class="section-header reveal" style="margin-top: 0;">
+        <span class="section-header__tag">✦ Where We Arrange Hotels ✦</span>
+        <h2 class="section-header__title">Destinations We Cover</h2>
+        <div class="section-header__ornament">
+          <div class="ornament__line"></div>
+          <div class="ornament__diamond"></div>
+          <div class="ornament__line"></div>
+        </div>
+      </div>
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 8px;"
+        class="reveal">
+
+        <div
+          style="background: white; border: 1px solid var(--color-border-gold); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; box-shadow: var(--shadow-card);">
+          <div style="font-size: 32px; margin-bottom: 10px;">🛕</div>
+          <div style="font-family: var(--font-heading); color: var(--color-maroon); font-size: 14px;">Jammu &amp;
+            Vaishno Devi</div>
+        </div>
+
+        <div
+          style="background: white; border: 1px solid var(--color-border-gold); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; box-shadow: var(--shadow-card);">
+          <div style="font-size: 32px; margin-bottom: 10px;">🏔️</div>
+          <div style="font-family: var(--font-heading); color: var(--color-maroon); font-size: 14px;">Kashmir</div>
+        </div>
+
+        <div
+          style="background: white; border: 1px solid var(--color-border-gold); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; box-shadow: var(--shadow-card);">
+          <div style="font-size: 32px; margin-bottom: 10px;">⛰️</div>
+          <div style="font-family: var(--font-heading); color: var(--color-maroon); font-size: 14px;">Ladakh</div>
+        </div>
+
+        <div
+          style="background: white; border: 1px solid var(--color-border-gold); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; box-shadow: var(--shadow-card);">
+          <div style="font-size: 32px; margin-bottom: 10px;">🙏</div>
+          <div style="font-family: var(--font-heading); color: var(--color-maroon); font-size: 14px;">Uttrakhand — Char
+            Dham</div>
+        </div>
+
+        <div
+          style="background: white; border: 1px solid var(--color-border-gold); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; box-shadow: var(--shadow-card);">
+          <div style="font-size: 32px; margin-bottom: 10px;">🏯</div>
+          <div style="font-family: var(--font-heading); color: var(--color-maroon); font-size: 14px;">Rajasthan</div>
+        </div>
+
+        <div
+          style="background: white; border: 1px solid var(--color-border-gold); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; box-shadow: var(--shadow-card);">
+          <div style="font-size: 32px; margin-bottom: 10px;">🌴</div>
+          <div style="font-family: var(--font-heading); color: var(--color-maroon); font-size: 14px;">Kerala</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY BOOK THROUGH US -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tag section-header__tag--light">✦ Why Book Through Us ✦</span>
+        <h2 class="section-header__title section-header__title--light">What We Offer</h2>
+        <div class="section-header__ornament">
+          <div class="ornament__line" style="background:rgba(212,160,23,0.5);"></div>
+          <div class="ornament__diamond"></div>
+          <div class="ornament__line" style="background:rgba(212,160,23,0.5);"></div>
+        </div>
+      </div>
+      <div class="why-hotel-grid">
+        <div class="why-hotel-card reveal">
+          <span class="why-hotel-card__icon">💰</span>
+          <div class="why-hotel-card__title">Best Available Rates</div>
+          <p class="why-hotel-card__desc">We negotiate on your behalf to get the best room rates — no hidden charges.
+          </p>
+        </div>
+        <div class="why-hotel-card reveal reveal--delay-1">
+          <span class="why-hotel-card__icon">🍽️</span>
+          <div class="why-hotel-card__title">Pure Veg Assured</div>
+          <p class="why-hotel-card__desc">Every hotel we arrange is verified for pure vegetarian kitchen — ideal for
+            pilgrimages.</p>
+        </div>
+        <div class="why-hotel-card reveal reveal--delay-2">
+          <span class="why-hotel-card__icon">🛕</span>
+          <div class="why-hotel-card__title">Near Temples &amp; Shrines</div>
+          <p class="why-hotel-card__desc">All hotels are handpicked for proximity to major temples and pilgrimage
+            starting points.</p>
+        </div>
+        <div class="why-hotel-card reveal reveal--delay-3">
+          <span class="why-hotel-card__icon">📞</span>
+          <div class="why-hotel-card__title">One Call Does It All</div>
+          <p class="why-hotel-card__desc">Book your hotel and yatra package together in one call. No need to contact
+            multiple vendors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section
+    style="padding:60px var(--space-lg); background:linear-gradient(135deg,var(--color-saffron),var(--color-maroon)); text-align:center;">
+    <h2 style="font-family:var(--font-heading); font-size:28px; color:white; margin-bottom:12px;">Need a Hotel for Your
+      Yatra?</h2>
+    <p style="font-size:var(--fs-md); color:rgba(255,255,255,0.8); margin-bottom:28px; font-style:italic;">Share your
+      destination, dates and group size — we'll arrange the perfect stay.</p>
+    <a href="contact.html" class="btn btn--dark">📞 Enquire Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/navbar-loader.js"></script>
+</body>
+
+</html>

@@ -20,7 +20,7 @@
 
 /* ── Destination / Package Card ── */
 .dest-card__img {
-  height: 200px;
+  height: 240px;
   position: relative;
   overflow: hidden;
 }
@@ -30,14 +30,72 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  transition: transform var(--transition-slow), opacity 0.4s ease;
+  opacity: 0;
 }
 
-.card:hover .dest-card__img-bg { transform: scale(1.06); }
+.dest-card__img img.loaded,
+.dest-card__img-bg.loaded {
+  opacity: 1;
+}
+
+.card:hover .dest-card__img-bg {
+  transform: scale(1.06);
+}
+
+/* ── Shimmer sweep while image loads ── */
+.dest-card__img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+      transparent 30%,
+      rgba(245, 200, 66, 0.08) 50%,
+      transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmerCard 1.6s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.dest-card__img.img-loaded::before {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes shimmerCard {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* ── Destination emoji icon shown while loading ── */
+.dest-card__img::after {
+  content: attr(data-icon);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  z-index: 2;
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.dest-card__img.img-loaded::after {
+  opacity: 0;
+}
 
 .dest-card__overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(26,5,5,0.75) 0%, rgba(26,5,5,0.1) 60%, transparent 100%);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(26, 5, 5, 0.75) 0%, rgba(26, 5, 5, 0.1) 60%, transparent 100%);
 }
 
 .dest-card__badge {
@@ -86,26 +144,31 @@
 }
 
 .dest-card__price {
-  font-family: var(--font-heading);
-  font-size: var(--fs-md);
-  color: var(--color-maroon);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--color-saffron);
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.dest-card__price-note {
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--color-text-muted);
-  font-weight: 400;
+.dest-card__price .dest-card__price-note {
+  font-size: var(--fs-sm);
+  color: var(--color-saffron);
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .dest-card__link {
   font-size: var(--fs-sm);
   color: var(--color-saffron);
-  border-bottom: 1px solid rgba(232,104,26,0.35);
+  border-bottom: 1px solid rgba(232, 104, 26, 0.35);
   transition: color var(--transition-fast);
 }
 
-.dest-card__link:hover { color: var(--color-saffron-dark); }
+.dest-card__link:hover {
+  color: var(--color-saffron-dark);
+}
 
 /* ── Testimonial Card ── */
 .test-card {
@@ -123,7 +186,8 @@
   color: var(--color-gold);
   opacity: 0.18;
   position: absolute;
-  top: 10px; left: 18px;
+  top: 10px;
+  left: 18px;
   line-height: 1;
 }
 
@@ -151,7 +215,8 @@
 }
 
 .test-card__avatar {
-  width: 42px; height: 42px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--color-saffron), var(--color-maroon));
   display: flex;
@@ -178,8 +243,8 @@
 
 /* ── Why/Feature Card ── */
 .feature-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(212,160,23,0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 160, 23, 0.2);
   border-radius: var(--radius-md);
   padding: 28px var(--space-md);
   text-align: center;
@@ -187,8 +252,8 @@
 }
 
 .feature-card:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(212,160,23,0.5);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(212, 160, 23, 0.5);
   transform: translateY(-4px);
 }
 
@@ -196,7 +261,7 @@
   font-size: 36px;
   margin-bottom: var(--space-sm);
   display: block;
-  filter: drop-shadow(0 0 8px rgba(245,200,66,0.4));
+  filter: drop-shadow(0 0 8px rgba(245, 200, 66, 0.4));
 }
 
 .feature-card__title {
@@ -209,6 +274,6 @@
 
 .feature-card__desc {
   font-size: 14px;
-  color: rgba(253,246,227,0.6);
+  color: rgba(253, 246, 227, 0.6);
   line-height: 1.6;
 }

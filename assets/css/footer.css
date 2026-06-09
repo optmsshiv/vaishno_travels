@@ -86,7 +86,7 @@
 }
 
 .footer__links a {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: rgba(253,246,227,0.45);
   transition: color var(--transition-fast);
   display: flex;

@@ -1,34 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Shree Vaishnо Travels — Book your sacred yatra, enquire about packages, or call us directly." />
+  <meta name="description"
+    content="Contact Shree Vaishnо Travels — Book your sacred yatra, enquire about packages, or call us directly." />
   <title>Contact Us | Shree Vaishnо Travels</title>
   <link rel="stylesheet" href="../assets/css/main.css" />
+
+  <style>
+    /* ============================================================
+       CONTACT PAGE — MOBILE OPTIMISATION
+       Desktop layout (1fr 1.6fr grid) untouched above 768px
+       ============================================================ */
+
+    @media (max-width: 768px) {
+
+      /* 1. Stack info column + form column vertically */
+      .contact-layout {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
+      /* 2. Section tighter padding */
+      .section {
+        padding: 32px 16px !important;
+      }
+
+      /* 3. Form rows — 2 col to 1 col */
+      .contact-form__row {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+      }
+
+      /* 4. Fix select / input overflowing on mobile */
+      .contact-form__select,
+      .contact-form__input,
+      .contact-form__textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 5. Fix form container not overflowing */
+      .contact-form {
+        width: 100% !important;
+        overflow: hidden !important;
+      }
+
+      /* 6. Fix optgroup / select native dropdown on iOS */
+      select {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23D4A017' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 14px center !important;
+        padding-right: 40px !important;
+      }
+
+      /* 4. Section header left-align fix */
+      .section-header {
+        margin-bottom: 20px !important;
+      }
+
+      /* 5. WhatsApp button — wrap text safely */
+      .wa-btn {
+        font-size: 13px !important;
+        padding: 12px 16px !important;
+        gap: 8px !important;
+      }
+
+      /* 6. Contact info cards — tighter padding */
+      .contact-info-card {
+        padding: 14px !important;
+        gap: 12px !important;
+      }
+
+      .contact-info-card .icon {
+        font-size: 22px !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="../index.html" class="navbar__logo">
-      <div class="navbar__om">ॐ</div>
-      <div>
-        <div class="navbar__brand-name">Shree Vaishnо Travels</div>
-        <div class="navbar__brand-tagline">Sacred Yatra Specialists</div>
-      </div>
-    </a>
-    <div class="navbar__hamburger"><span></span><span></span><span></span></div>
-    <ul class="navbar__links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="destinations.html">Destinations</a></li>
-      <li><a href="packages.html">Packages</a></li>
-      <li><a href="char-dham.html">Char Dham</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-      <li><a href="contact.html" class="navbar__cta">Book Yatra 🙏</a></li>
-    </ul>
-  </nav>
+  <div id="navbar-placeholder"></div>
 
   <!-- HERO INNER -->
   <section class="hero hero--inner">
@@ -48,7 +107,8 @@
   <!-- CONTACT SECTION -->
   <section class="section" style="background: var(--color-bg-section-alt);">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start;">
+      <div class="contact-layout"
+        style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start;">
 
         <!-- Info Column -->
         <div class="reveal">
@@ -57,44 +117,65 @@
             <h2 class="section-header__title" style="font-size: 28px;">Let's Plan Your Yatra Together</h2>
           </div>
 
-          <p style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 32px;">
-            Whether you want to enquire about a package, customise a trip, or simply need guidance on your pilgrimage — our team is ready to serve. We respond to all enquiries within 24 hours.
+          <p
+            style="font-size: var(--fs-base); color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 32px;">
+            Whether you want to enquire about a package, customise a trip, or simply need guidance on your pilgrimage —
+            our team is ready to serve. We respond to all enquiries within 24 hours.
           </p>
 
           <!-- Contact Cards -->
           <div style="display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-card);">
-              <div style="font-size: 26px; flex-shrink:0;">📞</div>
+            <div class="contact-info-card"
+              style="display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-card);">
+              <div class="icon" style="font-size: 26px; flex-shrink:0;">📞</div>
               <div>
-                <div style="font-family: var(--font-heading); font-size: var(--fs-sm); color: var(--color-maroon); margin-bottom: 4px;">Call / WhatsApp</div>
-                <a href="tel:+919876543210" style="font-size: var(--fs-md); color: var(--color-saffron);">+91 98765 43210</a>
+                <div
+                  style="font-family: var(--font-heading); font-size: var(--fs-sm); color: var(--color-maroon); margin-bottom: 4px;">
+                  Call / WhatsApp</div>
+                <a href="tel:+916005159084" style="font-size: var(--fs-md); color: var(--color-saffron);">+91 6005159084<br></a>
+                <a href="tel:+916005139893" style="font-size: var(--fs-md); color: var(--color-saffron);">+91 6005139893</a>
               </div>
             </div>
-            <div style="display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-card);">
-              <div style="font-size: 26px; flex-shrink:0;">📧</div>
+            <div class="contact-info-card"
+              style="display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-card);">
+              <div class="icon" style="font-size: 26px; flex-shrink:0;">📧</div>
               <div>
-                <div style="font-family: var(--font-heading); font-size: var(--fs-sm); color: var(--color-maroon); margin-bottom: 4px;">Email Us</div>
-                <a href="mailto:info@shreevaishnotravels.in" style="font-size: var(--fs-base); color: var(--color-saffron);">info@shreevaishnotravels.in</a>
+                <div
+                  style="font-family: var(--font-heading); font-size: var(--fs-sm); color: var(--color-maroon); margin-bottom: 4px;">
+                  Email Us</div>
+                <a href="mailto:info@shreevaishnotravels.in"
+                  style="font-size: var(--fs-base); color: var(--color-saffron);">info@shreevaishnotravels.in</a>
               </div>
             </div>
-            <div style="display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-card);">
-              <div style="font-size: 26px; flex-shrink:0;">📍</div>
+
+            <!-- Optional: Add office address and working hours cards if needed 
+            <div class="contact-info-card"
+              style="display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-card);">
+              <div class="icon" style="font-size: 26px; flex-shrink:0;">📍</div>
               <div>
-                <div style="font-family: var(--font-heading); font-size: var(--fs-sm); color: var(--color-maroon); margin-bottom: 4px;">Visit Our Office</div>
-                <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Near Patna Junction,<br>Patna, Bihar — 800001</div>
+                <div
+                  style="font-family: var(--font-heading); font-size: var(--fs-sm); color: var(--color-maroon); margin-bottom: 4px;">
+                  Visit Our Office</div>
+                <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Near Patna
+                  Junction,<br>Patna, Bihar — 800001</div>
               </div>
-            </div>
-            <div style="display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-card);">
-              <div style="font-size: 26px; flex-shrink:0;">⏰</div>
+            </div>-->
+            <div class="contact-info-card"
+              style="display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border-gold); box-shadow: var(--shadow-card);">
+              <div class="icon" style="font-size: 26px; flex-shrink:0;">⏰</div>
               <div>
-                <div style="font-family: var(--font-heading); font-size: var(--fs-sm); color: var(--color-maroon); margin-bottom: 4px;">Working Hours</div>
-                <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Monday – Sunday<br>9:00 AM – 8:00 PM</div>
+                <div
+                  style="font-family: var(--font-heading); font-size: var(--fs-sm); color: var(--color-maroon); margin-bottom: 4px;">
+                  Working Hours</div>
+                <div style="font-size: var(--fs-base); color: var(--color-text-secondary);">Monday – Sunday<br>9:00 AM –
+                  8:00 PM</div>
               </div>
             </div>
           </div>
 
           <!-- WhatsApp CTA -->
-          <a href="https://wa.me/919876543210?text=Jai%20Shree%20Ram!%20I%20want%20to%20enquire%20about%20a%20Yatra%20package." target="_blank"
+          <a href="https://wa.me/916005159084?text=Jai%20Shree%20Ram!%20I%20want%20to%20enquire%20about%20a%20Yatra%20package."
+            target="_blank" class="wa-btn"
             style="display:flex; align-items:center; justify-content:center; gap:10px; margin-top:28px; padding:14px 24px; background:#25D366; color:white; border-radius:var(--radius-sm); font-family:var(--font-heading); font-size:var(--fs-sm); letter-spacing:1px; text-decoration:none; transition: opacity 0.2s;">
             💬 &nbsp; Chat on WhatsApp
           </a>
@@ -103,7 +184,8 @@
         <!-- Form Column -->
         <div class="reveal reveal--delay-1">
           <form class="contact-form js-contact-form">
-            <h3 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-maroon); margin-bottom: var(--space-md); padding-bottom: 12px; border-bottom: 1px solid var(--color-border-gold);">
+            <h3
+              style="font-family: var(--font-heading); font-size: 20px; color: var(--color-maroon); margin-bottom: var(--space-md); padding-bottom: 12px; border-bottom: 1px solid var(--color-border-gold);">
               🙏 Send an Enquiry
             </h3>
 
@@ -125,7 +207,7 @@
               </div>
               <div class="contact-form__group">
                 <label class="contact-form__label">City / State</label>
-                <input class="contact-form__input" type="text" name="city" placeholder="e.g. Patna, Bihar" />
+                <input class="contact-form__input" type="text" name="city" placeholder="e.g. Jammu and Kashmir" />
               </div>
             </div>
 
@@ -133,15 +215,25 @@
               <label class="contact-form__label">Interested Destination *</label>
               <select class="contact-form__select" name="destination" required>
                 <option value="" disabled selected>Select a destination</option>
-                <option>Char Dham Yatra</option>
-                <option>Varanasi – Kashi</option>
-                <option>Vrindavan – Mathura</option>
-                <option>Tirupati Balaji</option>
-                <option>Kedarnath Dham</option>
-                <option>Badrinath Dham</option>
-                <option>Shirdi Sai Baba</option>
-                <option>Amritsar – Golden Temple</option>
-                <option>Custom Package</option>
+                <optgroup label="North India">
+                  <option value="jammu">Jammu – Vaishno Devi</option>
+                  <option value="kashmir">Kashmir</option>
+                  <option value="ladakh">Ladakh</option>
+                  <option value="punjab">Punjab – Golden Temple</option>
+                  <option value="himachal">Himachal Pradesh</option>
+                  <option value="uttrakhand">Uttrakhand – Char Dham</option>
+                  <option value="rajasthan">Rajasthan</option>
+                  <option value="delhi">Delhi</option>
+                </optgroup>
+                <optgroup label="Beaches">
+                  <option value="goa">Goa</option>
+                </optgroup>
+                <optgroup label="South India">
+                  <option value="kerala">Kerala</option>
+                </optgroup>
+                <optgroup label="Custom">
+                  <option value="custom">Custom / Group Package</option>
+                </optgroup>
               </select>
             </div>
 
@@ -165,11 +257,12 @@
 
             <div class="contact-form__group">
               <label class="contact-form__label">Message / Special Requirements</label>
-              <textarea class="contact-form__textarea" name="message" placeholder="Tell us about any special requirements, health conditions, or preferences…"></textarea>
+              <textarea class="contact-form__textarea" name="message"
+                placeholder="Tell us about any special requirements, health conditions, or preferences…"></textarea>
             </div>
 
             <button type="submit" class="btn btn--primary" style="width:100%; font-size:14px;">
-              🙏 &nbsp; Submit Enquiry — Jai Shree Ram
+              🙏 &nbsp; Submit Enquiry — Jai Mata Di
             </button>
 
             <p style="font-size:12px; color:var(--color-text-muted); text-align:center; margin-top:12px;">
@@ -183,60 +276,13 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__brand-name">Shree Vaishnо Travels</div>
-        <div class="footer__brand-tagline">Sacred Yatra Specialists</div>
-        <p class="footer__desc">For over 12 years, guiding devotees on spiritually enriching pilgrimages with devotion, care, and complete peace of mind.</p>
-        <div class="footer__social">
-          <a href="#" class="footer__social-btn">f</a>
-          <a href="#" class="footer__social-btn">in</a>
-          <a href="#" class="footer__social-btn">yt</a>
-          <a href="https://wa.me/919876543210" class="footer__social-btn">wa</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__col-title">Quick Links</div>
-        <ul class="footer__links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="packages.html">All Packages</a></li>
-          <li><a href="char-dham.html">Char Dham 2025</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="blog.html">Yatra Blog</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Top Destinations</div>
-        <ul class="footer__links">
-          <li><a href="destinations.html">Varanasi Kashi</a></li>
-          <li><a href="destinations.html">Vrindavan Mathura</a></li>
-          <li><a href="destinations.html">Tirupati Balaji</a></li>
-          <li><a href="destinations.html">Kedarnath</a></li>
-          <li><a href="destinations.html">Shirdi Sai Baba</a></li>
-          <li><a href="char-dham.html">Char Dham Yatra</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Contact Us</div>
-        <ul class="footer__links">
-          <li><a href="tel:+919876543210">📞 +91 98765 43210</a></li>
-          <li><a href="mailto:info@shreevaishnotravels.in">📧 info@shreevaishnotravels.in</a></li>
-          <li><a href="#">📍 Patna, Bihar — 800001</a></li>
-          <li><a href="#">⏰ Open Daily: 9 AM – 8 PM</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer__copy">© 2025 <span>Shree Vaishnо Travels</span>. All rights reserved.</div>
-      <div class="footer__dharma">ॐ नमो वेंकटेशाय</div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
-  <script src="../assets/js/navbar.js"></script>
   <script src="../assets/js/animations.js"></script>
   <script src="../assets/js/form.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/navbar-loader.js"></script>
+
 </body>
+
 </html>

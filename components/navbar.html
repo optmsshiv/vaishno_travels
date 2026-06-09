@@ -1,12 +1,28 @@
-<!-- ============================================================
-     NAVBAR COMPONENT
-     Copy this into every HTML page inside <body>
-     Update the "active" class on the correct <a> tag per page
-     ============================================================ -->
+<!-- Top Info Strip -->
+<div class="topstrip">
+  <div class="topstrip__inner">
+    <a href="tel:+916005139893" class="topstrip__item">
+      <span class="topstrip__icon">📞</span>
+      <span class="topstrip__text">+91 60051 39893</span>
+    </a>
+    <div class="topstrip__divider"></div>
+    <a href="https://wa.me/916005159084" target="_blank" rel="noopener" class="topstrip__item topstrip__item--wa">
+      <span class="topstrip__icon">💬</span>
+      <span class="topstrip__text">+91 60051 59084</span>
+
+    </a>
+    <div class="topstrip__divider topstrip__divider--hide-mobile"></div>
+    <span class="topstrip__item topstrip__item--info topstrip__divider--hide-mobile">
+      <span class="topstrip__icon">⏰</span>
+      <span class="topstrip__text">Open Daily: 9 AM – 8 PM</span>
+    </span>
+  </div>
+</div>
+
 <nav class="navbar">
 
   <!-- Logo -->
-  <a href="../index.html" class="navbar__logo">
+  <a href="/index.html" class="navbar__logo">
     <div class="navbar__om">ॐ</div>
     <div>
       <div class="navbar__brand-name">Shree Vaishnо Travels</div>
@@ -21,16 +37,15 @@
     <span></span>
   </div>
 
-  <!-- Links -->
+  <!-- Nav Links -->
   <ul class="navbar__links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="destinations.html">Destinations</a></li>
-    <li><a href="packages.html">Packages</a></li>
-    <li><a href="char-dham.html">Char Dham</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="contact.html" class="navbar__cta">Book Yatra 🙏</a></li>
+    <li><a href="/index.html" data-nav="home">Home</a></li>
+    <li><a href="/pages/destinations.html" data-nav="destinations">Destinations</a></li>
+    <li><a href="/pages/packages.html" data-nav="packages">Packages</a></li>
+    <li><a href="/pages/hotels.html" data-nav="hotels">Hotels</a></li>
+    <li><a href="/pages/about.html" data-nav="about">About Us</a></li>
+    <li><a href="/pages/contact.html" data-nav="contact">Contact</a></li>
+    <li><a href="/pages/contact.html" class="navbar__cta">Book Yatra 🙏</a></li>
   </ul>
 
 </nav>
-<!-- END NAVBAR -->

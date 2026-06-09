@@ -1,34 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore all sacred pilgrimage destinations with Shree Vaishnо Travels — Char Dham, Varanasi, Tirupati, Kedarnath, Shirdi and more." />
+  <meta name="description"
+    content="Explore all sacred pilgrimage destinations with Shree Vaishnо Travels — Char Dham, Varanasi, Tirupati, Kedarnath, Shirdi and more." />
   <title>All Destinations | Shree Vaishnо Travels</title>
   <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
+
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="../index.html" class="navbar__logo">
-      <div class="navbar__om">ॐ</div>
-      <div>
-        <div class="navbar__brand-name">Shree Vaishnо Travels</div>
-        <div class="navbar__brand-tagline">Sacred Yatra Specialists</div>
-      </div>
-    </a>
-    <div class="navbar__hamburger"><span></span><span></span><span></span></div>
-    <ul class="navbar__links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="destinations.html" class="active">Destinations</a></li>
-      <li><a href="packages.html">Packages</a></li>
-      <li><a href="char-dham.html">Char Dham</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="navbar__cta">Book Yatra 🙏</a></li>
-    </ul>
-  </nav>
+  <div id="navbar-placeholder"></div>
 
   <!-- HERO INNER -->
   <section class="hero hero--inner">
@@ -46,234 +31,306 @@
   </section>
 
   <!-- FILTER BAR -->
-  <div style="background: white; border-bottom: 1px solid var(--color-border-gold); padding: 18px var(--space-lg); display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-    <button class="btn btn--primary" style="padding:8px 20px; font-size:12px;">All</button>
-    <button class="btn btn--outline" style="padding:8px 20px; font-size:12px;">North India</button>
-    <button class="btn btn--outline" style="padding:8px 20px; font-size:12px;">South India</button>
-    <button class="btn btn--outline" style="padding:8px 20px; font-size:12px;">Himalayas</button>
-    <button class="btn btn--outline" style="padding:8px 20px; font-size:12px;">West India</button>
-    <button class="btn btn--outline" style="padding:8px 20px; font-size:12px;">East India</button>
+  <div
+    style="background: white; border-bottom: 1px solid var(--color-border-gold); padding: 18px var(--space-lg); display:flex; gap:12px; justify-content:center; flex-wrap:wrap;"
+    id="filter-bar">
+    <button class="filter-btn btn btn--primary" data-filter="all" style="padding:8px 20px; font-size:12px;">All</button>
+    <button class="filter-btn btn btn--outline" data-filter="north" style="padding:8px 20px; font-size:12px;">North
+      India</button>
+    <button class="filter-btn btn btn--outline" data-filter="mountains"
+      style="padding:8px 20px; font-size:12px;">Mountains</button>
+    <button class="filter-btn btn btn--outline" data-filter="heritage"
+      style="padding:8px 20px; font-size:12px;">Heritage</button>
+    <button class="filter-btn btn btn--outline" data-filter="beaches"
+      style="padding:8px 20px; font-size:12px;">Beaches</button>
+    <button class="filter-btn btn btn--outline" data-filter="south" style="padding:8px 20px; font-size:12px;">South
+      India</button>
   </div>
 
   <!-- DESTINATIONS GRID -->
   <section class="section" style="background: var(--color-bg-section-alt);">
     <div class="container">
-      <div class="grid-3">
+      <div class="grid-3" id="destinations-grid">
 
-        <!-- Card template repeated for each destination -->
-        <div class="card dest-card reveal">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#1A0505,#C0460E);">
-            <img src="../assets/images/destinations/varanasi.jpg" alt="Varanasi" class="dest-card__img-bg" onerror="this.style.display='none'">
+        <div class="card dest-card reveal" data-region="north mountains">
+          <div class="dest-card__img" data-icon="🛕" style="background: linear-gradient(160deg,#1A0A1A,#5C185C);">
+            <img src="../assets/images/destinations/jammu.jpg" alt="Vaishno Devi Jammu" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
             <div class="dest-card__overlay"></div>
-            <span class="dest-card__badge">Most Sacred</span>
+            <span class="dest-card__badge">Mata Vaishno Devi</span>
           </div>
           <div class="dest-card__body">
-            <div class="dest-card__name">Kashi Varanasi</div>
-            <div class="dest-card__state">Uttar Pradesh</div>
-            <p class="dest-card__desc">The eternal city of Lord Shiva. Experience the divine Ganga Aarti on the sacred ghats.</p>
+            <div class="dest-card__name">Jammu</div>
+            <div class="dest-card__state">Jammu &amp; Kashmir</div>
+            <p class="dest-card__desc">Seek blessings of Mata Vaishno Devi at Trikuta Hills — the most visited Hindu
+              shrine in India.</p>
             <div class="dest-card__footer">
-              <div class="dest-card__price">₹12,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="package-detail.html" class="dest-card__link">View Package →</a>
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=jammu" class="dest-card__link">View Package →</a>
             </div>
           </div>
         </div>
 
-        <div class="card dest-card reveal reveal--delay-1">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#071A07,#2E8B2E);">
-            <img src="../assets/images/destinations/vrindavan.jpg" alt="Vrindavan" class="dest-card__img-bg" onerror="this.style.display='none'">
+        <div class="card dest-card reveal reveal--delay-1" data-region="north mountains">
+          <div class="dest-card__img" data-icon="🏔️" style="background: linear-gradient(160deg,#051A10,#0A5C30);">
+            <img src="../assets/images/destinations/kashmir.jpg" alt="Dal Lake Kashmir" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
             <div class="dest-card__overlay"></div>
-            <span class="dest-card__badge">Lord Krishna</span>
+            <span class="dest-card__badge">Paradise on Earth</span>
           </div>
           <div class="dest-card__body">
-            <div class="dest-card__name">Vrindavan Mathura</div>
-            <div class="dest-card__state">Uttar Pradesh</div>
-            <p class="dest-card__desc">Land of Lord Krishna's divine childhood — Banke Bihari, ISKCON, sacred Yamuna.</p>
+            <div class="dest-card__name">Kashmir</div>
+            <div class="dest-card__state">Jammu &amp; Kashmir</div>
+            <p class="dest-card__desc">Shikara rides on Dal Lake, Pahalgam meadows, Gulmarg snow — heaven on earth
+              awaits you.</p>
             <div class="dest-card__footer">
-              <div class="dest-card__price">₹9,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="package-detail.html" class="dest-card__link">View Package →</a>
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=kashmir" class="dest-card__link">View Package →</a>
             </div>
           </div>
         </div>
 
-        <div class="card dest-card reveal reveal--delay-2">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#05050F,#2E2E8B);">
-            <img src="../assets/images/destinations/tirupati.jpg" alt="Tirupati" class="dest-card__img-bg" onerror="this.style.display='none'">
+        <div class="card dest-card reveal reveal--delay-2" data-region="north mountains">
+          <div class="dest-card__img" data-icon="⛰️" style="background: linear-gradient(160deg,#05101A,#1A4060);">
+            <img src="../assets/images/destinations/ladakh.jpg" alt="Ladakh Monasteries" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
             <div class="dest-card__overlay"></div>
-            <span class="dest-card__badge">Balaji Darshan</span>
+            <span class="dest-card__badge">Land of High Passes</span>
           </div>
           <div class="dest-card__body">
-            <div class="dest-card__name">Tirupati Balaji</div>
-            <div class="dest-card__state">Andhra Pradesh</div>
-            <p class="dest-card__desc">The world's wealthiest temple. Lord Venkateswara on the seven sacred Tirumala Hills.</p>
+            <div class="dest-card__name">Ladakh</div>
+            <div class="dest-card__state">Union Territory</div>
+            <p class="dest-card__desc">Ancient monasteries, Pangong Lake and the highest motorable roads — a journey
+              beyond the ordinary.</p>
             <div class="dest-card__footer">
-              <div class="dest-card__price">₹18,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="package-detail.html" class="dest-card__link">View Package →</a>
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=ladakh" class="dest-card__link">View Package →</a>
             </div>
           </div>
         </div>
 
-        <div class="card dest-card reveal">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#05101A,#1A5C8B);">
-            <img src="../assets/images/destinations/kedarnath.jpg" alt="Kedarnath" class="dest-card__img-bg" onerror="this.style.display='none'">
-            <div class="dest-card__overlay"></div>
-            <span class="dest-card__badge">Char Dham</span>
-          </div>
-          <div class="dest-card__body">
-            <div class="dest-card__name">Kedarnath Dham</div>
-            <div class="dest-card__state">Uttarakhand</div>
-            <p class="dest-card__desc">Divine abode of Lord Shiva in the majestic Himalayas at 3,583 metres altitude.</p>
-            <div class="dest-card__footer">
-              <div class="dest-card__price">₹24,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="package-detail.html" class="dest-card__link">View Package →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card dest-card reveal reveal--delay-1">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#1A0505,#8B3A1A);">
-            <img src="../assets/images/destinations/char-dham.jpg" alt="Char Dham" class="dest-card__img-bg" onerror="this.style.display='none'">
-            <div class="dest-card__overlay"></div>
-            <span class="dest-card__badge">Complete Circuit</span>
-          </div>
-          <div class="dest-card__body">
-            <div class="dest-card__name">Char Dham Yatra</div>
-            <div class="dest-card__state">Uttarakhand</div>
-            <p class="dest-card__desc">Yamunotri, Gangotri, Kedarnath &amp; Badrinath — the ultimate Himalayan pilgrimage.</p>
-            <div class="dest-card__footer">
-              <div class="dest-card__price">₹45,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="char-dham.html" class="dest-card__link">View Package →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card dest-card reveal reveal--delay-2">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#101A05,#5C8B1A);">
-            <img src="../assets/images/destinations/shirdi.jpg" alt="Shirdi" class="dest-card__img-bg" onerror="this.style.display='none'">
-            <div class="dest-card__overlay"></div>
-            <span class="dest-card__badge">Sai Baba</span>
-          </div>
-          <div class="dest-card__body">
-            <div class="dest-card__name">Shirdi Sai Baba</div>
-            <div class="dest-card__state">Maharashtra</div>
-            <p class="dest-card__desc">Visit the holy dargah of Sai Baba — "Sabka Malik Ek," the oneness of God.</p>
-            <div class="dest-card__footer">
-              <div class="dest-card__price">₹11,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="package-detail.html" class="dest-card__link">View Package →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card dest-card reveal">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#0A1A1A,#1A6060);">
+        <div class="card dest-card reveal" data-region="north">
+          <div class="dest-card__img" data-icon="🪯" style="background: linear-gradient(160deg,#0A1A05,#2E5C10);">
+            <img src="../assets/images/destinations/punjab.jpg" alt="Golden Temple Amritsar" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
             <div class="dest-card__overlay"></div>
             <span class="dest-card__badge">Golden Temple</span>
           </div>
           <div class="dest-card__body">
-            <div class="dest-card__name">Amritsar</div>
+            <div class="dest-card__name">Punjab</div>
             <div class="dest-card__state">Punjab</div>
-            <p class="dest-card__desc">Visit the resplendent Golden Temple — the holiest shrine of the Sikh faith.</p>
+            <p class="dest-card__desc">Visit the resplendent Harmandir Sahib in Amritsar — the holiest shrine of the
+              Sikh faith.</p>
             <div class="dest-card__footer">
-              <div class="dest-card__price">₹10,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="package-detail.html" class="dest-card__link">View Package →</a>
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=punjab" class="dest-card__link">View Package →</a>
             </div>
           </div>
         </div>
 
-        <div class="card dest-card reveal reveal--delay-1">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#1A100A,#7B3A18);">
+        <div class="card dest-card reveal reveal--delay-1" data-region="north mountains">
+          <div class="dest-card__img" data-icon="❄️" style="background: linear-gradient(160deg,#0A0A1A,#1A2A6C);">
+            <img src="../assets/images/destinations/himachal.jpg" alt="Shimla Himachal Pradesh"
+              class="dest-card__img-bg" onerror="this.style.display='none'">
+            <div class="dest-card__overlay"></div>
+            <span class="dest-card__badge">Hill Queen</span>
+          </div>
+          <div class="dest-card__body">
+            <div class="dest-card__name">Himachal Pradesh</div>
+            <div class="dest-card__state">Himachal Pradesh</div>
+            <p class="dest-card__desc">Shimla, Manali, Dharamshala and Spiti — majestic mountains, apple orchards and
+              Tibetan culture.</p>
+            <div class="dest-card__footer">
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=himachal" class="dest-card__link">View Package →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card dest-card reveal reveal--delay-2" data-region="north mountains">
+          <div class="dest-card__img" data-icon="🙏" style="background: linear-gradient(160deg,#05101A,#1A5C8B);">
+            <img src="../assets/images/destinations/uttrakhand.jpg" alt="Kedarnath Uttrakhand" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
             <div class="dest-card__overlay"></div>
             <span class="dest-card__badge">Char Dham</span>
           </div>
           <div class="dest-card__body">
-            <div class="dest-card__name">Badrinath Dham</div>
-            <div class="dest-card__state">Uttarakhand</div>
-            <p class="dest-card__desc">Sacred abode of Lord Vishnu — nestled between the Nar and Narayan mountains.</p>
+            <div class="dest-card__name">Uttrakhand</div>
+            <div class="dest-card__state">Uttrakhand</div>
+            <p class="dest-card__desc">Kedarnath, Badrinath, Haridwar and Rishikesh — the sacred Himalayan abodes of
+              Lord Shiva and Vishnu.</p>
             <div class="dest-card__footer">
-              <div class="dest-card__price">₹22,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="package-detail.html" class="dest-card__link">View Package →</a>
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=uttrakhand" class="dest-card__link">View Package →</a>
             </div>
           </div>
         </div>
 
-        <div class="card dest-card reveal reveal--delay-2">
-          <div class="dest-card__img" style="background: linear-gradient(160deg,#1A0A1A,#5C185C);">
+        <div class="card dest-card reveal" data-region="north heritage">
+          <div class="dest-card__img" data-icon="🏰" style="background: linear-gradient(160deg,#1A0A05,#8B3A10);">
+            <img src="../assets/images/destinations/rajasthan.jpg" alt="Rajasthan Palaces" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
             <div class="dest-card__overlay"></div>
-            <span class="dest-card__badge">Shakti Peetha</span>
+            <span class="dest-card__badge">Royal Heritage</span>
           </div>
           <div class="dest-card__body">
-            <div class="dest-card__name">Vaishno Devi</div>
-            <div class="dest-card__state">Jammu &amp; Kashmir</div>
-            <p class="dest-card__desc">Seek blessings of Mata Vaishno Devi — the most visited Hindu shrine in India.</p>
+            <div class="dest-card__name">Rajasthan</div>
+            <div class="dest-card__state">Rajasthan</div>
+            <p class="dest-card__desc">Jaipur, Jodhpur, Udaipur and the Thar Desert — forts, palaces and the golden
+              sands of Rajputana.</p>
             <div class="dest-card__footer">
-              <div class="dest-card__price">₹16,999 <span class="dest-card__price-note">/ person</span></div>
-              <a href="package-detail.html" class="dest-card__link">View Package →</a>
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=rajasthan" class="dest-card__link">View Package →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card dest-card reveal reveal--delay-1" data-region="north heritage">
+          <div class="dest-card__img" data-icon="🕌" style="background: linear-gradient(160deg,#0A0505,#3A1A1A);">
+            <img src="../assets/images/destinations/delhi.jpg" alt="Delhi Red Fort" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
+            <div class="dest-card__overlay"></div>
+            <span class="dest-card__badge">Capital Heritage</span>
+          </div>
+          <div class="dest-card__body">
+            <div class="dest-card__name">Delhi</div>
+            <div class="dest-card__state">Delhi NCR</div>
+            <p class="dest-card__desc">Akshardham, Lotus Temple, Red Fort and Qutub Minar — history and spirituality at
+              every corner.</p>
+            <div class="dest-card__footer">
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=delhi" class="dest-card__link">View Package →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card dest-card reveal reveal--delay-2" data-region="beaches">
+          <div class="dest-card__img" data-icon="🏖️" style="background: linear-gradient(160deg,#051A10,#0F6B3A);">
+            <img src="../assets/images/destinations/goa.jpg" alt="Goa Beaches" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
+            <div class="dest-card__overlay"></div>
+            <span class="dest-card__badge">Sun &amp; Sand</span>
+          </div>
+          <div class="dest-card__body">
+            <div class="dest-card__name">Goa</div>
+            <div class="dest-card__state">Goa</div>
+            <p class="dest-card__desc">Golden beaches, Portuguese heritage churches and vibrant culture — India's most
+              loved coastal escape.</p>
+            <div class="dest-card__footer">
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=goa" class="dest-card__link">View Package →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card dest-card reveal" data-region="south beaches">
+          <div class="dest-card__img" data-icon="🌴" style="background: linear-gradient(160deg,#051A0A,#1A6B2E);">
+            <img src="../assets/images/destinations/kerala.jpg" alt="Kerala Backwaters" class="dest-card__img-bg"
+              onerror="this.style.display='none'">
+            <div class="dest-card__overlay"></div>
+            <span class="dest-card__badge">God's Own Country</span>
+          </div>
+          <div class="dest-card__body">
+            <div class="dest-card__name">Kerala</div>
+            <div class="dest-card__state">Kerala</div>
+            <p class="dest-card__desc">Serene backwaters, Munnar tea gardens and Guruvayur temple — nature and divinity
+              in perfect harmony.</p>
+            <div class="dest-card__footer">
+              <div class="dest-card__price">📞 <span class="dest-card__price-note">Price on Call</span></div>
+              <a href="package-detail.html?destination=kerala" class="dest-card__link">View Package →</a>
             </div>
           </div>
         </div>
 
       </div><!-- /.grid-3 -->
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section style="padding: 60px var(--space-lg); background: linear-gradient(135deg, var(--color-saffron), var(--color-maroon)); text-align:center;">
-    <h2 style="font-family:var(--font-heading); font-size:28px; color:white; margin-bottom:12px;">Can't find your destination?</h2>
-    <p style="font-size:var(--fs-md); color:rgba(255,255,255,0.8); margin-bottom:28px; font-style:italic;">We customise pilgrimages to any holy site in India. Just ask!</p>
-    <a href="contact.html" class="btn btn--dark">Request Custom Yatra</a>
+      <!-- Empty state -->
+      <div id="no-results" style="display:none; text-align:center; padding: 60px 20px;">
+        <div style="font-size:48px; margin-bottom:16px;">🙏</div>
+        <p style="font-family:var(--font-heading); font-size:18px; color:var(--color-maroon);">No destinations found</p>
+        <p style="color:var(--color-text-muted); margin-top:8px;">Try a different filter or <a href="contact.html"
+            style="color:var(--color-saffron);">contact us</a> for a custom yatra.</p>
+      </div>
+
+    </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__brand-name">Shree Vaishnо Travels</div>
-        <div class="footer__brand-tagline">Sacred Yatra Specialists</div>
-        <p class="footer__desc">For over 12 years, guiding devotees on spiritually enriching pilgrimages with devotion, care, and complete peace of mind.</p>
-        <div class="footer__social">
-          <a href="#" class="footer__social-btn">f</a>
-          <a href="#" class="footer__social-btn">in</a>
-          <a href="#" class="footer__social-btn">yt</a>
-          <a href="https://wa.me/919876543210" class="footer__social-btn">wa</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__col-title">Quick Links</div>
-        <ul class="footer__links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="packages.html">All Packages</a></li>
-          <li><a href="char-dham.html">Char Dham 2025</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Top Destinations</div>
-        <ul class="footer__links">
-          <li><a href="destinations.html">Varanasi Kashi</a></li>
-          <li><a href="destinations.html">Tirupati Balaji</a></li>
-          <li><a href="destinations.html">Kedarnath</a></li>
-          <li><a href="destinations.html">Shirdi Sai Baba</a></li>
-          <li><a href="char-dham.html">Char Dham Yatra</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Contact Us</div>
-        <ul class="footer__links">
-          <li><a href="tel:+919876543210">📞 +91 98765 43210</a></li>
-          <li><a href="mailto:info@shreevaishnotravels.in">📧 info@shreevaishnotravels.in</a></li>
-          <li><a href="#">📍 Patna, Bihar — 800001</a></li>
-          <li><a href="#">⏰ Open Daily: 9 AM – 8 PM</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer__copy">© 2025 <span>Shree Vaishnо Travels</span>. All rights reserved.</div>
-      <div class="footer__dharma">ॐ नमो वेंकटेशाय</div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
-  <script src="../assets/js/navbar.js"></script>
   <script src="../assets/js/animations.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/navbar-loader.js"></script>
+  <script>
+    /* ── Destination Filter ── */
+    (function () {
+      const btns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('#destinations-grid .dest-card');
+      const empty = document.getElementById('no-results');
+
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+
+          /* swap active button style */
+          btns.forEach(function (b) {
+            b.classList.remove('btn--primary');
+            b.classList.add('btn--outline');
+          });
+          btn.classList.remove('btn--outline');
+          btn.classList.add('btn--primary');
+
+          var filter = btn.dataset.filter;
+          var visible = 0;
+
+          cards.forEach(function (card) {
+            var regions = card.dataset.region || '';
+            var show = filter === 'all' || regions.split(' ').includes(filter);
+
+            if (show) {
+              card.style.display = '';
+              /* re-trigger reveal animation */
+              card.classList.remove('visible');
+              setTimeout(function () { card.classList.add('visible'); }, 50);
+              visible++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          empty.style.display = visible === 0 ? 'block' : 'none';
+        });
+      });
+    })();
+  </script>
+  <script>
+    /* ── Image load handler — shimmer → photo ── */
+    (function () {
+      function initImgLoad() {
+        document.querySelectorAll(".dest-card__img").forEach(function (wrap) {
+          var img = wrap.querySelector("img");
+          if (!img) return;
+          if (img.complete && img.naturalWidth > 0) {
+            img.classList.add("loaded");
+            wrap.classList.add("img-loaded");
+          } else {
+            img.addEventListener("load", function () {
+              img.classList.add("loaded");
+              wrap.classList.add("img-loaded");
+            });
+            img.addEventListener("error", function () {
+              /* image missing — keep gradient + icon visible */
+              wrap.classList.remove("img-loaded");
+            });
+          }
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initImgLoad);
+      } else {
+        initImgLoad();
+      }
+    })();
+  </script>
 </body>
+
 </html>

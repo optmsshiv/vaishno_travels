@@ -6,11 +6,10 @@
   position: relative;
   min-height: 85vh;
   background: linear-gradient(160deg,
-    var(--color-maroon-deep) 0%,
-    var(--color-maroon-dark) 35%,
-    var(--color-maroon) 65%,
-    var(--color-saffron-dark) 100%
-  );
+      var(--color-maroon-deep) 0%,
+      var(--color-maroon-dark) 35%,
+      var(--color-maroon) 65%,
+      var(--color-saffron-dark) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,19 +19,33 @@
 
 .hero__mandala {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.06;
+  opacity: 0.22;
   animation: rotateMandala 60s linear infinite;
   pointer-events: none;
 }
 
+/* Counter-rotating inner ring */
+.hero__mandala .mandala-inner {
+  transform-origin: 100px 100px;
+  animation: rotateMandalaReverse 40s linear infinite;
+}
+
+/* Middle ring pulse */
+.hero__mandala .mandala-mid {
+  transform-origin: 100px 100px;
+  animation: rotateMandala 25s linear infinite;
+}
+
 .hero__glow {
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,160,23,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(232,104,26,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 80% 15%, rgba(232,104,26,0.10) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212, 160, 23, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(232, 104, 26, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 15%, rgba(232, 104, 26, 0.10) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -50,8 +63,8 @@
   letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--color-gold-bright);
-  border-top: 1px solid rgba(245,200,66,0.4);
-  border-bottom: 1px solid rgba(245,200,66,0.4);
+  border-top: 1px solid rgba(245, 200, 66, 0.4);
+  border-bottom: 1px solid rgba(245, 200, 66, 0.4);
   padding: 6px 20px;
   margin-bottom: 28px;
 }
@@ -64,7 +77,9 @@
   margin-bottom: 8px;
 }
 
-.hero__title span { color: var(--color-gold-bright); }
+.hero__title span {
+  color: var(--color-gold-bright);
+}
 
 .hero__subtitle {
   font-family: var(--font-body);
@@ -84,7 +99,8 @@
 }
 
 .hero__divider-line {
-  width: 80px; height: 1px;
+  width: 80px;
+  height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-gold));
 }
 
@@ -92,7 +108,10 @@
   background: linear-gradient(90deg, var(--color-gold), transparent);
 }
 
-.hero__divider-icon { color: var(--color-gold-bright); font-size: 20px; }
+.hero__divider-icon {
+  color: var(--color-gold-bright);
+  font-size: 20px;
+}
 
 .hero__desc {
   font-size: var(--fs-md);
@@ -112,7 +131,9 @@
 /* ── Temple Silhouette at bottom ── */
 .hero__silhouette {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 80px;
   opacity: 0.12;
   pointer-events: none;
@@ -136,8 +157,13 @@
   justify-content: center;
   margin-top: var(--space-sm);
   font-size: var(--fs-sm);
-  color: rgba(253,246,227,0.5);
+  color: rgba(253, 246, 227, 0.5);
 }
 
-.breadcrumb a { color: var(--color-gold); }
-.breadcrumb span { color: rgba(245,200,66,0.3); }
+.breadcrumb a {
+  color: var(--color-gold);
+}
+
+.breadcrumb span {
+  color: rgba(245, 200, 66, 0.3);
+}
