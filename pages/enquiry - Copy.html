@@ -620,6 +620,17 @@
 
     .upi-app-icon {
       font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+    }
+
+    .upi-app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     /* ── CALL APPOINTMENT ── */
@@ -912,7 +923,6 @@
       }
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -1372,10 +1382,12 @@
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Shivkhori Yatra">
           <div class="req-item__box">✓</div><span class="req-item__label">🕉️ Shivkhori Yatra</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Patnitop & NathaTop Hills">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
+            value="Patnitop & NathaTop Hills">
           <div class="req-item__box">✓</div><span class="req-item__label">🌿 Patnitop & NathaTop Hills</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Weather Update Information">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
+            value="Weather Update Information">
           <div class="req-item__box">✓</div><span class="req-item__label">🌤️ Weather Update Info</span>
         </label>
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Himachal Pradesh Tour">
@@ -1400,10 +1412,12 @@
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Kashmir Tour Package">
           <div class="req-item__box">✓</div><span class="req-item__label">❄️ Kashmir Tour Package</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Vaishno Devi Yatra Information">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
+            value="Vaishno Devi Yatra Information">
           <div class="req-item__box">✓</div><span class="req-item__label">🛕 Vaishno Devi Yatra Info</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="4 Deviyein Darshan – Himachal">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
+            value="4 Deviyein Darshan – Himachal">
           <div class="req-item__box">✓</div><span class="req-item__label">🙏 4 Deviyein Darshan (Himachal)</span>
         </label>
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Shimla & Manali Tour">
@@ -1419,13 +1433,16 @@
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Bus Tickets">
           <div class="req-item__box">✓</div><span class="req-item__label">🚌 Bus Tickets</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Katra Local Sightseeing Points">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
+            value="Katra Local Sightseeing Points">
           <div class="req-item__box">✓</div><span class="req-item__label">📍 Katra Local Sightseeing</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Jammu Local Sightseeing Points">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
+            value="Jammu Local Sightseeing Points">
           <div class="req-item__box">✓</div><span class="req-item__label">📍 Jammu Local Sightseeing</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Hall & Dormitory Booking">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
+            value="Hall & Dormitory Booking">
           <div class="req-item__box">✓</div><span class="req-item__label">🏠 Hall & Dormitory Booking</span>
         </label>
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Other">
@@ -1509,16 +1526,28 @@
         <div class="upi-id" id="upi-id-display">shreevaishnotravels@upi</div>
         <div class="upi-apps">
           <div class="upi-app">
-            <div class="upi-app-icon">🟢</div><span>PhonePe</span>
+            <div class="upi-app-icon"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/120px-PhonePe_Logo.svg.png"
+                alt="PhonePe" /></div>
+            <span>PhonePe</span>
           </div>
           <div class="upi-app">
-            <div class="upi-app-icon">🔵</div><span>GPay</span>
+            <div class="upi-app-icon"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/120px-Google_Pay_Logo.svg.png"
+                alt="GPay" /></div>
+            <span>GPay</span>
           </div>
           <div class="upi-app">
-            <div class="upi-app-icon">🔴</div><span>Paytm</span>
+            <div class="upi-app-icon"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/120px-Paytm_Logo_%28standalone%29.svg.png"
+                alt="Paytm" /></div>
+            <span>Paytm</span>
           </div>
           <div class="upi-app">
-            <div class="upi-app-icon">🟠</div><span>BHIM</span>
+            <div class="upi-app-icon"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/120px-UPI-Logo-vector.svg.png"
+                alt="BHIM" /></div>
+            <span>BHIM UPI</span>
           </div>
         </div>
         <p style="font-size:12px; color:var(--text-muted); margin-top:14px;">Payment is optional at this stage. Our team
@@ -1633,26 +1662,9 @@
   <script>
     /* ============================================================
        ENQUIRY FORM — 6-step logic
-       ─────────────────────────────────────────────────────────────
-       SETUP STEPS (one-time, 5 minutes):
-       1. Create a free account at https://www.emailjs.com
-       2. Add a Gmail service → copy the Service ID below
-       3. Create TWO email templates:
-            • Admin template  (use variables like {{name}}, {{phone}}, etc.)
-            • User/confirmation template (same variables + {{to_name}})
-          Copy both Template IDs below
-       4. Copy your Public Key from Account → API Keys
-       5. Replace ADMIN_EMAIL with your Gmail address
-       ─────────────────────────────────────────────────────────────
+       Form submits via fetch() → send_enquiry.php (same folder)
+       All SMTP config lives in send_enquiry.php — nothing secret here
     ============================================================ */
-
-    var EMAILJS_PUBLIC_KEY      = 'YOUR_EMAILJS_PUBLIC_KEY';   // e.g. 'abc123XYZ'
-    var EMAILJS_SERVICE_ID      = 'YOUR_SERVICE_ID';           // e.g. 'service_xxxxxx'
-    var EMAILJS_ADMIN_TEMPLATE_ID = 'YOUR_ADMIN_TEMPLATE_ID'; // e.g. 'template_admin'
-    var EMAILJS_USER_TEMPLATE_ID  = 'YOUR_USER_TEMPLATE_ID';  // e.g. 'template_confirm'
-    var ADMIN_EMAIL             = 'your-admin@gmail.com';      // ← your Gmail here
-
-    emailjs.init(EMAILJS_PUBLIC_KEY);
 
     var TOTAL_STEPS = 6;
     var currentStep = 1;
@@ -1848,52 +1860,53 @@
         utr: document.getElementById('f-utr').value.trim() || '',
       };
 
-      /* ── EmailJS: send admin notification + user confirmation ── */
-      var adminParams = {
-        to_email:    ADMIN_EMAIL,
-        reply_to:    formData.email,
-        from_name:   formData.name,
-        name:        formData.name,
-        phone:       formData.phone,
-        email:       formData.email,
-        state:       formData.state,
-        city:        formData.city,
-        adults:      formData.adults,
-        children:    formData.children,
+      /* ── POST JSON to send_enquiry.php ── */
+      var payload = {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        state: formData.state,
+        city: formData.city,
+        adults: formData.adults,
+        children: formData.children,
         destination: formData.destination,
-        checkin:     fmtDate(formData.checkin),
-        checkout:    fmtDate(formData.checkout),
-        month:       formData.month,
-        arrival:     formData.arrival,
-        departure:   formData.departure,
-        duration:    formData.duration || 'Not specified',
-        budget:      formData.budget || 'Not specified',
-        transport:   formData.transport || 'Not specified',
-        requirements:formData.requirements,
-        special:     formData.special || 'None',
-        call_date:   fmtDate(formData.callDate),
-        call_time:   formData.callTime,
-        call_type:   formData.callType,
-        utr:         formData.utr || 'Not paid',
+        checkin: fmtDate(formData.checkin),
+        checkout: fmtDate(formData.checkout),
+        month: formData.month,
+        arrival: formData.arrival,
+        departure: formData.departure,
+        duration: formData.duration || 'Not specified',
+        budget: formData.budget || 'Not specified',
+        transport: formData.transport || 'Not specified',
+        requirements: formData.requirements,
+        special: formData.special || 'None',
+        call_date: fmtDate(formData.callDate),
+        call_time: formData.callTime,
+        call_type: formData.callType,
+        utr: formData.utr || 'Not paid',
       };
 
-      var userParams = Object.assign({}, adminParams, {
-        to_email: formData.email,
-        to_name:  formData.name,
-      });
-
-      Promise.all([
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TEMPLATE_ID, adminParams),
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_USER_TEMPLATE_ID,  userParams),
-      ])
-      .then(function () {
-        showSuccess();
+      fetch('send_enquiry.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       })
-      .catch(function (err) {
-        console.error('EmailJS error:', err);
-        /* Still show success — data can be recovered from EmailJS dashboard */
-        showSuccess();
-      });
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            showSuccess();
+          } else {
+            btn.textContent = '🙏 Submit Enquiry';
+            btn.disabled = false;
+            alert('Could not send enquiry: ' + (data.error || 'Unknown error. Please try again.'));
+          }
+        })
+        .catch(function (err) {
+          console.error('Submit error:', err);
+          btn.textContent = '🙏 Submit Enquiry';
+          btn.disabled = false;
+          alert('Network error. Please check your connection and try again.');
+        });
     }
 
     /* ── Success screen ── */

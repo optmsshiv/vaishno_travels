@@ -12,8 +12,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     *,
     *::before,
@@ -577,30 +577,109 @@
     }
 
     .upi-qr {
-      width: 160px;
-      height: 160px;
-      background: linear-gradient(135deg, var(--border-gold), rgba(212, 160, 23, 0.1));
-      border-radius: var(--radius);
+      width: 320px;
+      height: 420px;
       margin: 0 auto 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: var(--text-muted);
-      border: 1px dashed var(--gold);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid var(--border-gold);
+      background: #fff;
+      padding: 6px;
+      box-sizing: border-box;
     }
 
-    .upi-id {
+    .upi-qr img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .upi-id-bar {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 10px auto 4px;
+      max-width: 400px;
+      border: 1.5px solid var(--border-gold);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--warm-white);
+    }
+
+    .upi-id-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: #fff;
+      background: var(--maroon);
+      padding: 9px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .upi-id-value {
+      flex: 1;
       font-family: var(--font-head);
       font-size: 13px;
       color: var(--maroon);
-      background: var(--warm-white);
-      border: 1px solid var(--border-gold);
-      border-radius: 4px;
-      padding: 8px 16px;
-      display: inline-block;
-      margin-top: 4px;
-      letter-spacing: 1px;
+      letter-spacing: .6px;
+      padding: 9px 10px;
+      text-align: left;
+      user-select: all;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .upi-copy-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      padding: 9px 13px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background .2s;
+    }
+
+    .upi-copy-btn:hover {
+      background: #b8860b;
+    }
+
+    .upi-copy-btn:active {
+      transform: scale(.96);
+    }
+
+    .upi-copy-toast {
+      display: none;
+      font-size: 12px;
+      color: #2e7d32;
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      border-radius: 6px;
+      padding: 6px 14px;
+      margin: 6px auto 0;
+      max-width: 200px;
+      text-align: center;
+      animation: fadeIn .2s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-4px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
     }
 
     .upi-apps {
@@ -622,6 +701,17 @@
 
     .upi-app-icon {
       font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+    }
+
+    .upi-app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     /* ── CALL APPOINTMENT ── */
@@ -909,8 +999,8 @@
       }
 
       .upi-qr {
-        width: 140px;
-        height: 140px;
+        width: 300px;
+        height: 400px;
       }
     }
   </style>
@@ -1497,25 +1587,45 @@
         <div class="upi-box__title">Pay via UPI</div>
         <div class="upi-box__sub">Scan with any UPI app · Secure & Instant</div>
         <div class="upi-qr" id="upi-qr-box">
-          <!-- Replace this div with an <img src="your-qr.png"> when you have the QR code -->
-          <div style="text-align:center; padding:10px;">
-            <div style="font-size:32px; margin-bottom:8px;">📱</div>
-            <div style="font-size:11px; line-height:1.5;">Add your UPI QR<br>image here</div>
-          </div>
+          <img src="/assets/images/icons/payment.jpeg" alt="UPI QR Code" />
         </div>
-        <div class="upi-id" id="upi-id-display">shreevaishnotravels@upi</div>
+        <div class="upi-id-bar">
+          <span class="upi-id-label">UPI ID</span>
+          <span class="upi-id-value" id="upi-id-display">shivamrajputjk02df3893@oksbi</span>
+          <button class="upi-copy-btn" onclick="copyUpiId()" title="Copy UPI ID">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <span id="copy-btn-text">Copy</span>
+          </button>
+        </div>
+        <div class="upi-copy-toast" id="upi-copy-toast">✅ UPI ID copied!</div>
         <div class="upi-apps">
           <div class="upi-app">
-            <div class="upi-app-icon">🟢</div><span>PhonePe</span>
+            <div class="upi-app-icon"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/120px-PhonePe_Logo.svg.png"
+                alt="PhonePe" /></div>
+            <span>PhonePe</span>
           </div>
           <div class="upi-app">
-            <div class="upi-app-icon">🔵</div><span>GPay</span>
+            <div class="upi-app-icon"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/120px-Google_Pay_Logo.svg.png"
+                alt="GPay" /></div>
+            <span>GPay</span>
           </div>
           <div class="upi-app">
-            <div class="upi-app-icon">🔴</div><span>Paytm</span>
+            <div class="upi-app-icon"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/120px-Paytm_Logo_%28standalone%29.svg.png"
+                alt="Paytm" /></div>
+            <span>Paytm</span>
           </div>
           <div class="upi-app">
-            <div class="upi-app-icon">🟠</div><span>BHIM</span>
+            <div class="upi-app-icon"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/120px-UPI-Logo-vector.svg.png"
+                alt="BHIM" /></div>
+            <span>BHIM UPI</span>
           </div>
         </div>
         <p style="font-size:12px; color:var(--text-muted); margin-top:14px;">Payment is optional at this stage. Our team
@@ -1651,6 +1761,37 @@
     }
 
     /* ── Requirement checkbox toggle ── */
+    /* ── Copy UPI ID ── */
+    function copyUpiId() {
+      var upiId = document.getElementById('upi-id-display').textContent.trim();
+      var btn = document.getElementById('copy-btn-text');
+      var toast = document.getElementById('upi-copy-toast');
+
+      navigator.clipboard.writeText(upiId).then(function () {
+        btn.textContent = 'Copied!';
+        toast.style.display = 'block';
+        setTimeout(function () {
+          btn.textContent = 'Copy';
+          toast.style.display = 'none';
+        }, 2200);
+      }).catch(function () {
+        /* Fallback for older browsers */
+        var el = document.createElement('textarea');
+        el.value = upiId;
+        el.style.position = 'fixed'; el.style.opacity = '0';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        btn.textContent = 'Copied!';
+        toast.style.display = 'block';
+        setTimeout(function () {
+          btn.textContent = 'Copy';
+          toast.style.display = 'none';
+        }, 2200);
+      });
+    }
+
     function toggleReq(el, event) {
       if (event) { event.preventDefault(); event.stopPropagation(); }
       el.classList.toggle('checked');
@@ -1897,7 +2038,7 @@
         + 'Please call me on ' + formData.callDate + ' at ' + formData.callTime + ' (' + formData.callType + ').\n'
         + '— From ' + formData.city + ', ' + formData.state
       );
-      document.getElementById('wa-follow-up').href = 'https://wa.me/919876543210?text=' + msg;
+      document.getElementById('wa-follow-up').href = 'https://wa.me/9160051398930?text=' + msg;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1916,7 +2057,7 @@
 
   <!-- FOOTER -->
   <div id="footer-placeholder"></div>
-  
+
   <script src="../assets/js/animations.js"></script>
   <script src="../assets/js/main.js"></script>
   <script src="/assets/js/navbar-loader.js"></script>
