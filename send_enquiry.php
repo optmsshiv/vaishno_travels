@@ -46,25 +46,14 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(200); exit; }
 
-/* ── Load PHPMailer ── */
-$composerAutoload = __DIR__ . '/vendor/autoload.php';
-$manualSrc        = __DIR__ . '/PHPMailer/src';
-
-if (file_exists($composerAutoload)) {
-    require $composerAutoload;
-} elseif (is_dir($manualSrc) && file_exists($manualSrc . '/PHPMailer.php')) {
-    require $manualSrc . '/Exception.php';
-    require $manualSrc . '/PHPMailer.php';
-    require $manualSrc . '/SMTP.php';
-} else {
-    /* List what's actually in __DIR__ to help debug */
+/* ── Load PHPMailer (bundled — no Composer needed) ── */
+$bundle = __DIR__ . '/phpmailer_bundle.php';
+if (!file_exists($bundle)) {
     $files = @scandir(__DIR__) ?: [];
-    echo json_encode([
-        'success' => false,
-        'error'   => 'PHPMailer not found. Files in directory: ' . implode(', ', $files)
-    ]);
+    echo json_encode(['success' => false, 'error' => 'phpmailer_bundle.php not found. Files: ' . implode(', ', $files)]);
     exit;
 }
+require $bundle;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
