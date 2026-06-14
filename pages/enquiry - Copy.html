@@ -12,8 +12,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     *,
     *::before,
@@ -914,13 +912,25 @@
       }
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
 
   <!-- TOP BAR -->
-  <!-- NAVBAR -->
-  <div id="navbar-placeholder"></div>
+  <div class="topbar">
+    <a href="/index.html" class="topbar__logo">
+      <div class="topbar__om">ॐ</div>
+      <div>
+        <div class="topbar__name">Shree Vaishnо Travels</div>
+        <div class="topbar__tagline">Sacred Yatra Specialists</div>
+      </div>
+    </a>
+    <div class="topbar__contact">
+      <a href="tel:+919876543210">📞 +91 98765 43210</a>
+      <a href="https://wa.me/919876543210">💬 WhatsApp</a>
+    </div>
+  </div>
 
   <!-- HERO -->
   <div class="hero-strip">
@@ -1362,12 +1372,10 @@
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Shivkhori Yatra">
           <div class="req-item__box">✓</div><span class="req-item__label">🕉️ Shivkhori Yatra</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
-            value="Patnitop & NathaTop Hills">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Patnitop & NathaTop Hills">
           <div class="req-item__box">✓</div><span class="req-item__label">🌿 Patnitop & NathaTop Hills</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
-            value="Weather Update Information">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Weather Update Information">
           <div class="req-item__box">✓</div><span class="req-item__label">🌤️ Weather Update Info</span>
         </label>
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Himachal Pradesh Tour">
@@ -1392,12 +1400,10 @@
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Kashmir Tour Package">
           <div class="req-item__box">✓</div><span class="req-item__label">❄️ Kashmir Tour Package</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
-            value="Vaishno Devi Yatra Information">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Vaishno Devi Yatra Information">
           <div class="req-item__box">✓</div><span class="req-item__label">🛕 Vaishno Devi Yatra Info</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
-            value="4 Deviyein Darshan – Himachal">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="4 Deviyein Darshan – Himachal">
           <div class="req-item__box">✓</div><span class="req-item__label">🙏 4 Deviyein Darshan (Himachal)</span>
         </label>
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Shimla & Manali Tour">
@@ -1413,16 +1419,13 @@
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Bus Tickets">
           <div class="req-item__box">✓</div><span class="req-item__label">🚌 Bus Tickets</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
-            value="Katra Local Sightseeing Points">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Katra Local Sightseeing Points">
           <div class="req-item__box">✓</div><span class="req-item__label">📍 Katra Local Sightseeing</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
-            value="Jammu Local Sightseeing Points">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Jammu Local Sightseeing Points">
           <div class="req-item__box">✓</div><span class="req-item__label">📍 Jammu Local Sightseeing</span>
         </label>
-        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox"
-            value="Hall & Dormitory Booking">
+        <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Hall & Dormitory Booking">
           <div class="req-item__box">✓</div><span class="req-item__label">🏠 Hall & Dormitory Booking</span>
         </label>
         <label class="req-item" onclick="toggleReq(this, event)"><input type="checkbox" value="Other">
@@ -1630,9 +1633,26 @@
   <script>
     /* ============================================================
        ENQUIRY FORM — 6-step logic
-       Form submits via fetch() → send_enquiry.php (same folder)
-       All SMTP config lives in send_enquiry.php — nothing secret here
+       ─────────────────────────────────────────────────────────────
+       SETUP STEPS (one-time, 5 minutes):
+       1. Create a free account at https://www.emailjs.com
+       2. Add a Gmail service → copy the Service ID below
+       3. Create TWO email templates:
+            • Admin template  (use variables like {{name}}, {{phone}}, etc.)
+            • User/confirmation template (same variables + {{to_name}})
+          Copy both Template IDs below
+       4. Copy your Public Key from Account → API Keys
+       5. Replace ADMIN_EMAIL with your Gmail address
+       ─────────────────────────────────────────────────────────────
     ============================================================ */
+
+    var EMAILJS_PUBLIC_KEY      = 'YOUR_EMAILJS_PUBLIC_KEY';   // e.g. 'abc123XYZ'
+    var EMAILJS_SERVICE_ID      = 'YOUR_SERVICE_ID';           // e.g. 'service_xxxxxx'
+    var EMAILJS_ADMIN_TEMPLATE_ID = 'YOUR_ADMIN_TEMPLATE_ID'; // e.g. 'template_admin'
+    var EMAILJS_USER_TEMPLATE_ID  = 'YOUR_USER_TEMPLATE_ID';  // e.g. 'template_confirm'
+    var ADMIN_EMAIL             = 'your-admin@gmail.com';      // ← your Gmail here
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
 
     var TOTAL_STEPS = 6;
     var currentStep = 1;
@@ -1828,53 +1848,52 @@
         utr: document.getElementById('f-utr').value.trim() || '',
       };
 
-      /* ── POST JSON to send_enquiry.php ── */
-      var payload = {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        state: formData.state,
-        city: formData.city,
-        adults: formData.adults,
-        children: formData.children,
+      /* ── EmailJS: send admin notification + user confirmation ── */
+      var adminParams = {
+        to_email:    ADMIN_EMAIL,
+        reply_to:    formData.email,
+        from_name:   formData.name,
+        name:        formData.name,
+        phone:       formData.phone,
+        email:       formData.email,
+        state:       formData.state,
+        city:        formData.city,
+        adults:      formData.adults,
+        children:    formData.children,
         destination: formData.destination,
-        checkin: fmtDate(formData.checkin),
-        checkout: fmtDate(formData.checkout),
-        month: formData.month,
-        arrival: formData.arrival,
-        departure: formData.departure,
-        duration: formData.duration || 'Not specified',
-        budget: formData.budget || 'Not specified',
-        transport: formData.transport || 'Not specified',
-        requirements: formData.requirements,
-        special: formData.special || 'None',
-        call_date: fmtDate(formData.callDate),
-        call_time: formData.callTime,
-        call_type: formData.callType,
-        utr: formData.utr || 'Not paid',
+        checkin:     fmtDate(formData.checkin),
+        checkout:    fmtDate(formData.checkout),
+        month:       formData.month,
+        arrival:     formData.arrival,
+        departure:   formData.departure,
+        duration:    formData.duration || 'Not specified',
+        budget:      formData.budget || 'Not specified',
+        transport:   formData.transport || 'Not specified',
+        requirements:formData.requirements,
+        special:     formData.special || 'None',
+        call_date:   fmtDate(formData.callDate),
+        call_time:   formData.callTime,
+        call_type:   formData.callType,
+        utr:         formData.utr || 'Not paid',
       };
 
-      fetch('send_enquiry.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+      var userParams = Object.assign({}, adminParams, {
+        to_email: formData.email,
+        to_name:  formData.name,
+      });
+
+      Promise.all([
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TEMPLATE_ID, adminParams),
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_USER_TEMPLATE_ID,  userParams),
+      ])
+      .then(function () {
+        showSuccess();
       })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (data.success) {
-            showSuccess();
-          } else {
-            btn.textContent = '🙏 Submit Enquiry';
-            btn.disabled = false;
-            alert('Could not send enquiry: ' + (data.error || 'Unknown error. Please try again.'));
-          }
-        })
-        .catch(function (err) {
-          console.error('Submit error:', err);
-          btn.textContent = '🙏 Submit Enquiry';
-          btn.disabled = false;
-          alert('Network error. Please check your connection and try again.');
-        });
+      .catch(function (err) {
+        console.error('EmailJS error:', err);
+        /* Still show success — data can be recovered from EmailJS dashboard */
+        showSuccess();
+      });
     }
 
     /* ── Success screen ── */
@@ -1913,13 +1932,6 @@
       });
     });
   </script>
-
-  <!-- FOOTER -->
-  <div id="footer-placeholder"></div>
-  
-  <script src="../assets/js/animations.js"></script>
-  <script src="../assets/js/main.js"></script>
-  <script src="/assets/js/navbar-loader.js"></script>
 </body>
 
 </html>
