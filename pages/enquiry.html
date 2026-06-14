@@ -1995,7 +1995,7 @@
         utr: formData.utr || 'Not paid',
       };
 
-      fetch('send_enquiry.php', {
+      fetch('/send_enquiry.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
