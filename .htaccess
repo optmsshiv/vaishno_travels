@@ -30,7 +30,12 @@ ServerSignature Off
   # RewriteCond %{REQUEST_URI} !^/cpanel [NC]
   # RewriteRule ^ /index.html [L,R=302]
 
-  # ── STEP 4: Clean URLs (remove .html extension) ─────────
+  # ── STEP 4a: Redirect requests that still show .html ────
+  # e.g. /contact.html -> /contact  (keeps one canonical URL, avoids duplicate-content SEO issues)
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [NC,L,R=301]
+
+  # ── STEP 4b: Clean URLs (serve .html without showing it) ─
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME}.html -f
